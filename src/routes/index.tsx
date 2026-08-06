@@ -103,7 +103,7 @@ function Home() {
             <a href="https://cleartopay.ctonew.app/app/login" className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600">
               Sign In
             </a>
-            <a href="https://cleartopay.ctonew.app/register" className="btn-glow rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30">
+            <a href="https://cleartopay.ctonew.app/app/register" className="btn-glow rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30">
               Get Protected
             </a>
           </div>
@@ -166,7 +166,7 @@ function Home() {
 
             {/* CTAs */}
             <div className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <a href="https://cleartopay.ctonew.app/register" className="btn-glow w-full rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-2xl hover:shadow-blue-600/40 sm:w-auto">
+              <a href="https://cleartopay.ctonew.app/app/register" className="btn-glow w-full rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-2xl hover:shadow-blue-600/40 sm:w-auto">
                 Let Us Take This Off Your Hands
               </a>
               <a href="#problem" className="w-full rounded-2xl border border-white/20 bg-white/5 px-10 py-5 text-lg font-semibold text-slate-200 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/30 sm:w-auto">
