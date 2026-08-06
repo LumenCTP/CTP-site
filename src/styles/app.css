@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body {
+    @apply bg-white text-slate-900 antialiased;
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  ::selection {
+    @apply bg-blue-600/20 text-blue-900;
+  }
+}
+
+/* ── Subtle grain/noise texture ── */
+.grain-bg {
+  position: relative;
+}
+.grain-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+.grain-bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Dot pattern background ── */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgb(148 163 184 / 0.10) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ── Glass morphism card ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ── Gradient divider ── */
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(148 163 184 / 0.25), transparent);
+}
+
+/* ── Section divider (thin, subtle) ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(226 232 240 / 0.6), transparent);
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+/* ── CSS-only fade-in on scroll ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  animation: fadeInUp 0.7s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 100%;
+}
+
+/* ── Button glow effect ── */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.3), 0 0 60px rgba(37, 99, 235, 0.1);
+}
+
+/* ── Card hover lift — refined and subtle ── */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.10), 0 0 0 1px rgba(37, 99, 235, 0.12);
+}
+
+/* ── Doc-card hover — even subtler for document type cards ── */
+.doc-card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.doc-card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(37, 99, 235, 0.10);
+}
+
+/* ── Feature card icon hover — smooth transition ── */
+.feature-icon {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.card-lift:hover .feature-icon {
+  transform: scale(1.05);
+}
+
+/* ── Stat badge subtle shimmer ── */
+.stat-badge {
+  position: relative;
+  overflow: hidden;
+}
+.stat-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.06) 55%, transparent 60%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Custom checkmark for lists — larger, cleaner ── */
+.checkmark-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.6;
+}
+.checkmark-list li::before {
+  content: "";
+  display: inline-block;
+  width: 1.375rem;
+  height: 1.375rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  background: rgb(37 99 235 / 0.10);
+  border-radius: 9999px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%232563eb'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-size: 0.875rem 0.875rem;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ── Floating label input styling ── */
+.input-premium {
+  @apply block w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-3.5 text-slate-900 placeholder-slate-400 shadow-sm transition-all duration-200;
+  @apply focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 focus:outline-none focus:bg-white;
+  @apply hover:border-slate-300;
+}
+
+/* ── Hero background — fixed parallax on desktop ── */
+.hero-bg {
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* ── Problem card cost badge pulse (subtle) ── */
+@keyframes subtlePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+}
+.cost-badge {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
