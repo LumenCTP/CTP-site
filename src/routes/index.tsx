@@ -87,7 +87,7 @@ function Home() {
           <a href="/" className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 shadow-sm shadow-blue-600/25">
               <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 23s9-4 9-11V4l-9-3-9 3v8c0 7 9 11 9 11z"/><path d="M6 17a.6.6 0 0 0 .6.6h10.8a.6.6 0 0 0 .6-.6v-.8a.6.6 0 0 0-.6-.6H6.6a.6.6 0 0 0-.6.6z"/><path d="M11 10.5V7a.6.6 0 0 1 .6-.6h.8a.6.6 0 0 1 .6.6v3.5"/><path d="M7.5 14v-2a3.5 3.5 0 0 1 3.5-3.5"/><path d="M13 8.5a3.5 3.5 0 0 1 3.5 3.5v2"/>
+                <path d="M12 24s10-4 10-12V3l-10-3-10 3v9c0 8 10 12 10 12z"/><path d="M7 17.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-.7a.5.5 0 0 0-.5-.5H7.5a.5.5 0 0 0-.5.5z"/><path d="M11.5 11V7.5a.5.5 0 0 1 .5-.5h0a.5.5 0 0 1 .5.5V11"/><path d="M7.5 14.5v-2a3 3 0 0 1 4-3.5"/><path d="M12.5 9a3 3 0 0 1 4 3.5v2"/>
               </svg>
             </span>
             <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
@@ -479,7 +479,7 @@ function Home() {
               <a href="/" className="flex items-center gap-2.5">
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 shadow-sm shadow-blue-600/25">
                   <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 23s9-4 9-11V4l-9-3-9 3v8c0 7 9 11 9 11z"/><path d="M6 17a.6.6 0 0 0 .6.6h10.8a.6.6 0 0 0 .6-.6v-.8a.6.6 0 0 0-.6-.6H6.6a.6.6 0 0 0-.6.6z"/><path d="M11 10.5V7a.6.6 0 0 1 .6-.6h.8a.6.6 0 0 1 .6.6v3.5"/><path d="M7.5 14v-2a3.5 3.5 0 0 1 3.5-3.5"/><path d="M13 8.5a3.5 3.5 0 0 1 3.5 3.5v2"/>
+                    <path d="M12 24s10-4 10-12V3l-10-3-10 3v9c0 8 10 12 10 12z"/><path d="M7 17.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-.7a.5.5 0 0 0-.5-.5H7.5a.5.5 0 0 0-.5.5z"/><path d="M11.5 11V7.5a.5.5 0 0 1 .5-.5h0a.5.5 0 0 1 .5.5V11"/><path d="M7.5 14.5v-2a3 3 0 0 1 4-3.5"/><path d="M12.5 9a3 3 0 0 1 4 3.5v2"/>
                   </svg>
                 </span>
                 <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
