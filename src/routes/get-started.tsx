@@ -98,10 +98,10 @@ function GetStarted() {
           <a href="/" className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600">
               <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/>
               </svg>
             </span>
-            <span className="text-xl font-extrabold tracking-tight text-white">ClearToPay</span>
+            <span className="text-xl font-extrabold tracking-tight text-white">ClearToPay Construction</span>
           </a>
           <div className="flex items-center gap-6">
             <a href="https://cleartopay.ctonew.app/app/login" className="text-sm font-medium text-slate-400 transition-colors hover:text-white">
@@ -358,13 +358,13 @@ function GetStarted() {
             <a href="/" className="flex items-center gap-2">
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
                 <svg className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/>
                 </svg>
               </span>
-              <span className="text-base font-bold tracking-tight text-slate-900">ClearToPay</span>
+              <span className="text-base font-bold tracking-tight text-slate-900">ClearToPay Construction</span>
             </a>
             <span className="text-sm text-slate-400">
-              &copy; {new Date().getFullYear()} ClearToPay Compliance. All rights reserved.
+              &copy; {new Date().getFullYear()} ClearToPay Construction. All rights reserved.
             </span>
             <div className="flex gap-8 text-sm text-slate-400">
               <a href="/" className="transition-colors hover:text-slate-600">Home</a>

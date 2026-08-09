@@ -7,9 +7,9 @@ const getBusinessName = createServerFn({ method: "GET" }).handler(async () => {
     const cfg = JSON.parse(await readFile("site.json", "utf8")) as {
       businessName?: string;
     };
-    return cfg.businessName?.trim() ?? "ClearToPay Compliance";
+    return cfg.businessName?.trim() ?? "ClearToPay Construction";
   } catch {
-    return "ClearToPay Compliance";
+    return "ClearToPay Construction";
   }
 });
 
@@ -87,10 +87,10 @@ function Home() {
           <a href="/" className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 shadow-sm shadow-blue-600/25">
               <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/>
               </svg>
             </span>
-            <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay</span>
+            <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
           </a>
           <div className="hidden gap-8 text-sm font-medium text-slate-700 md:flex">
             <a href="#problem" className="transition-colors hover:text-blue-600">The Problem</a>
@@ -479,10 +479,10 @@ function Home() {
               <a href="/" className="flex items-center gap-2.5">
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 shadow-sm shadow-blue-600/25">
                   <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/>
                   </svg>
                 </span>
-                <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay</span>
+                <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
               </a>
               <p className="mt-5 text-sm leading-relaxed text-slate-500">
                 AI-powered vendor compliance management for construction companies. Never miss an expired document again.
