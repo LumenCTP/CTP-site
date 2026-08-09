@@ -97,8 +97,8 @@ function GetStarted() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="/" className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600">
-              <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 24s10-4 10-12V3l-10-3-10 3v9c0 8 10 12 10 12z"/><path d="M7 17.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-.7a.5.5 0 0 0-.5-.5H7.5a.5.5 0 0 0-.5.5z"/><path d="M11.5 11V7.5a.5.5 0 0 1 .5-.5h0a.5.5 0 0 1 .5.5V11"/><path d="M7.5 14.5v-2a3 3 0 0 1 4-3.5"/><path d="M12.5 9a3 3 0 0 1 4 3.5v2"/>
+              <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 24s11-4 11-12.5V2.5l-11-2.5-11 2.5v9.5c0 8.5 11 12.5 11 12.5z"/><path d="M7 15a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-.7a.5.5 0 0 0-.5-.5H7.5a.5.5 0 0 0-.5.5z"/><path d="M11.5 9V5.5a.5.5 0 0 1 .5-.5h0a.5.5 0 0 1 .5.5V9"/><path d="M7.5 12.5v-2a3 3 0 0 1 4-3.5"/><path d="M12.5 7a3 3 0 0 1 4 3.5v2"/>
               </svg>
             </span>
             <span className="text-xl font-extrabold tracking-tight text-white">ClearToPay Construction</span>
@@ -357,8 +357,8 @@ function GetStarted() {
           <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
             <a href="/" className="flex items-center gap-2">
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
-                <svg className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 24s10-4 10-12V3l-10-3-10 3v9c0 8 10 12 10 12z"/><path d="M7 17.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-.7a.5.5 0 0 0-.5-.5H7.5a.5.5 0 0 0-.5.5z"/><path d="M11.5 11V7.5a.5.5 0 0 1 .5-.5h0a.5.5 0 0 1 .5.5V11"/><path d="M7.5 14.5v-2a3 3 0 0 1 4-3.5"/><path d="M12.5 9a3 3 0 0 1 4 3.5v2"/>
+                <svg className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 24s11-4 11-12.5V2.5l-11-2.5-11 2.5v9.5c0 8.5 11 12.5 11 12.5z"/><path d="M7 15a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-.7a.5.5 0 0 0-.5-.5H7.5a.5.5 0 0 0-.5.5z"/><path d="M11.5 9V5.5a.5.5 0 0 1 .5-.5h0a.5.5 0 0 1 .5.5V9"/><path d="M7.5 12.5v-2a3 3 0 0 1 4-3.5"/><path d="M12.5 7a3 3 0 0 1 4 3.5v2"/>
                 </svg>
               </span>
               <span className="text-base font-bold tracking-tight text-slate-900">ClearToPay Construction</span>
