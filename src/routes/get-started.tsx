@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const Route = createFileRoute("/get-started")({
   component: GetStarted,
@@ -11,12 +11,36 @@ function GetStarted() {
   const [selectedPlan, setSelectedPlan] = useState<Plan>("monthly");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [referrer, setReferrer] = useState<string | null>(null);
 
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const companyNameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+
+  // Read the ?ref= partner referral code from the URL (if any) and, when valid,
+  // show who is referring this signup. Invalid codes fail silently.
+  // Guarded for SSR (window is undefined on the server).
+  const refCode = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("ref")
+    : null;
+
+  useEffect(() => {
+    if (!refCode) return;
+    let cancelled = false;
+    fetch(`/api/referrals/track?code=${encodeURIComponent(refCode)}`)
+      .then((r) => r.json())
+      .then((d) => {
+        if (!cancelled && d?.partner?.name) setReferrer(d.partner.name);
+      })
+      .catch(() => {
+        // Graceful failure — hide the banner if tracking is unavailable.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [refCode]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,6 +89,7 @@ function GetStarted() {
           company_name: companyName,
           email,
           password,
+          ...(refCode ? { referral_code: refCode } : {}),
         }),
       });
 
@@ -245,6 +270,15 @@ function GetStarted() {
                 <p className="mt-2 text-sm text-slate-700">
                   We'll use this to set up your account and get you onboarded.
                 </p>
+
+                {referrer && (
+                  <div className="mt-5 flex items-center gap-2.5 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-800">
+                    <svg className="h-4 w-4 shrink-0 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"/>
+                    </svg>
+                    You're being referred by <strong>{referrer}</strong>. We'll notify them once your account is active.
+                  </div>
+                )}
 
                 <form onSubmit={handleSubmit} className="mt-10 space-y-6">
                   {/* First & Last Name */}
