@@ -51,7 +51,7 @@ const IconHardHat = () => (
 );
 const IconShield = () => (
   <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><g transform="translate(12,11) scale(0.3) translate(-12,-11)"><path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/><path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/><path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/><path d="M13.5 6a5 5 0 0 1 5 5v2.5"/></g>
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><g transform="translate(12,11) scale(0.45) translate(-12,-11)"><path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/><path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/><path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/><path d="M13.5 6a5 5 0 0 1 5 5v2.5"/></g>
   </svg>
 );
 const IconClipboard = () => (
@@ -87,7 +87,7 @@ function Home() {
           <a href="/" className="flex items-center gap-2.5">
             <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 shadow-sm shadow-blue-600/25">
               <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><g transform="translate(12,11) scale(0.3) translate(-12,-11)"><path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/><path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/><path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/><path d="M13.5 6a5 5 0 0 1 5 5v2.5"/></g>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><g transform="translate(12,11) scale(0.45) translate(-12,-11)"><path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/><path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/><path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/><path d="M13.5 6a5 5 0 0 1 5 5v2.5"/></g>
               </svg>
             </span>
             <span className="text-xl font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
@@ -479,7 +479,7 @@ function Home() {
               <a href="/" className="flex items-center gap-2.5">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 shadow-sm shadow-blue-600/25">
                   <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><g transform="translate(12,11) scale(0.3) translate(-12,-11)"><path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/><path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/><path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/><path d="M13.5 6a5 5 0 0 1 5 5v2.5"/></g>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><g transform="translate(12,11) scale(0.45) translate(-12,-11)"><path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/><path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/><path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/><path d="M13.5 6a5 5 0 0 1 5 5v2.5"/></g>
                   </svg>
                 </span>
                 <span className="text-xl font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
