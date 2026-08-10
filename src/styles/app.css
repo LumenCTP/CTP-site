@@ -13,6 +13,13 @@
     @apply bg-blue-600/20 text-blue-900;
   }
 }
+/* Homepage nav scroll-spy: blue pill on the active section link.
+   Unlayered rule so it beats layered utilities (text-slate-700,
+   hover:text-blue-600) regardless of cascade order. */
+a.spy-active,
+a.spy-active:hover {
+  @apply bg-blue-600 text-white rounded-lg px-3 py-1.5;
+}
 
 /* ── Subtle grain/noise texture ── */
 .grain-bg {

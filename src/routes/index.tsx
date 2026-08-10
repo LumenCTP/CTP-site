@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { readFile } from "node:fs/promises";
@@ -222,6 +223,50 @@ function InlineCTA({
 function Home() {
   const businessName = Route.useLoaderData();
 
+  /* ── Scroll-spy: highlight the active section's nav link (vanilla IntersectionObserver) ── */
+  useEffect(() => {
+    const links = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>("nav a[data-spy]")
+    );
+    const sections = links
+      .map((link) => document.getElementById(link.dataset.spy ?? ""))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (links.length === 0 || sections.length === 0) return;
+
+    const setActive = (activeId: string | null) => {
+      for (const link of links) {
+        const isActive = link.dataset.spy === activeId;
+        link.classList.toggle("spy-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      }
+    };
+
+    // Spy band: a horizontal strip 40%–45% down the viewport. The section whose
+    // top is nearest the band's top edge while intersecting it is "active".
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let bestId: string | null = null;
+        let bestDist = Infinity;
+        const refLine = window.innerHeight * 0.4;
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const dist = Math.abs(entry.boundingClientRect.top - refLine);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestId = (entry.target as HTMLElement).id;
+          }
+        }
+        if (bestId) setActive(bestId);
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-dvh bg-white text-slate-900 font-sans">
       {/* ═══════════ Navigation ═══════════ */}
@@ -254,28 +299,36 @@ function Home() {
           <div className="hidden gap-8 text-sm font-medium text-slate-700 md:flex">
             <a
               href="#we-do-the-work"
-              className="transition-colors hover:text-blue-600"
+              data-spy="we-do-the-work"
+              className="transition-all duration-300 hover:text-blue-600"
             >
               We Do the Work
             </a>
             <a
               href="#monday-report"
-              className="transition-colors hover:text-blue-600"
+              data-spy="monday-report"
+              className="transition-all duration-300 hover:text-blue-600"
             >
               Monday Report
             </a>
             <a
               href="#how-it-works"
-              className="transition-colors hover:text-blue-600"
+              data-spy="how-it-works"
+              className="transition-all duration-300 hover:text-blue-600"
             >
               How It Works
             </a>
-            <a href="#audit" className="transition-colors hover:text-blue-600">
+            <a
+              href="#audit"
+              data-spy="audit"
+              className="transition-all duration-300 hover:text-blue-600"
+            >
               Audits
             </a>
             <a
               href="#pricing"
-              className="transition-colors hover:text-blue-600"
+              data-spy="pricing"
+              className="transition-all duration-300 hover:text-blue-600"
             >
               Pricing
             </a>
@@ -287,7 +340,8 @@ function Home() {
             </a>
             <a
               href="#contact"
-              className="transition-colors hover:text-blue-600"
+              data-spy="contact"
+              className="transition-all duration-300 hover:text-blue-600"
             >
               Contact
             </a>

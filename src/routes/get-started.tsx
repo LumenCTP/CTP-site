@@ -167,10 +167,11 @@ function GetStarted() {
                     )}
                   </div>
                   <div className="mt-3">
-                    <span className="text-3xl font-extrabold text-slate-900">Free Trial</span>
-                    <span className="text-slate-400 font-medium">30 days</span>
+                    <span className="text-3xl font-extrabold text-slate-900">$179</span>
+                    <span className="text-slate-400 font-medium">/month after free trial</span>
                   </div>
-                  <p className="mt-1 text-sm text-slate-700">Then choose the plan that fits your team.</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">Your First Month is Free</p>
+                  <p className="mt-2 text-sm text-slate-500">Cancel anytime.</p>
                   <ul className="mt-5 space-y-2.5 text-sm text-slate-600">
                     {["Clear-to-Pay reports every Monday", "Unlimited vendor tracking", "Audit packages on demand", "AI document processing", "Email support"].map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
@@ -193,9 +194,9 @@ function GetStarted() {
                       : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-md"
                   }`}
                 >
-                  {/* Popular badge */}
-                  <div className="popular-badge absolute -top-3 right-4 rounded-full bg-green-500 px-4 py-1 text-xs font-bold text-white shadow-lg">
-                    Popular
+                  {/* Best Value badge */}
+                  <div className="popular-badge absolute -top-3 right-4 rounded-full bg-blue-600 px-4 py-1 text-xs font-bold text-white shadow-lg">
+                    Best Value
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-lg font-bold text-slate-900">Annual</span>
@@ -206,10 +207,11 @@ function GetStarted() {
                     )}
                   </div>
                   <div className="mt-3">
-                    <span className="text-3xl font-extrabold text-slate-900">Free Trial</span>
-                    <span className="text-slate-400 font-medium">30 days</span>
+                    <span className="text-3xl font-extrabold text-slate-900">$149</span>
+                    <span className="text-slate-400 font-medium">/month after free trial</span>
                   </div>
-                  <p className="mt-1 text-sm text-slate-700">Then choose the plan that fits your team.</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">Your First Month is Free</p>
+                  <p className="mt-2 text-sm font-bold text-blue-600">Save $360/year</p>
                   <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
                     <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
@@ -316,19 +318,19 @@ function GetStarted() {
                     <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Order Summary</h3>
                     <div className="mt-4 flex items-center justify-between">
                       <span className="text-sm text-slate-600">
-                        Free 30-Day Trial
+                        {selectedPlan === "annual" ? "Annual Plan" : "Month-to-Month"}
                       </span>
                       <span className="text-sm font-bold text-slate-900">
-                        Start free
+                        {selectedPlan === "annual" ? "$149/month" : "$179/month"}
                       </span>
                     </div>
                     <div className="mt-2 flex items-center justify-between">
-                      <span className="text-sm text-green-600 font-medium">Payment required today</span>
-                      <span className="text-sm font-bold text-green-600">None</span>
+                      <span className="text-sm text-blue-600 font-medium">Your first month</span>
+                      <span className="text-sm font-bold text-blue-600">Free</span>
                     </div>
                     <div className="mt-4 border-t border-slate-200 pt-4 flex items-center justify-between">
                       <span className="text-sm font-bold text-slate-900">Due today</span>
-                      <span className="text-2xl font-extrabold text-green-600">$0 — Free Trial</span>
+                      <span className="text-2xl font-extrabold text-green-600">$0</span>
                     </div>
                   </div>
 
