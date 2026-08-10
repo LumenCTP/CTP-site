@@ -85,12 +85,12 @@ function Home() {
       <nav className="sticky top-0 z-50 border-b border-slate-200/50 bg-white/85 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
           <a href="/" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 shadow-sm shadow-blue-600/25">
-              <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 shadow-sm shadow-blue-600/25">
+              <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><g transform="translate(12,11) scale(0.3) translate(-12,-11)"><path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/><path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/><path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/><path d="M13.5 6a5 5 0 0 1 5 5v2.5"/></g>
               </svg>
             </span>
-            <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
+            <span className="text-xl font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
           </a>
           <div className="hidden gap-8 text-sm font-medium text-slate-700 md:flex">
             <a href="#problem" className="transition-colors hover:text-blue-600">The Problem</a>
@@ -477,12 +477,12 @@ function Home() {
             {/* Brand */}
             <div className="lg:col-span-1">
               <a href="/" className="flex items-center gap-2.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 shadow-sm shadow-blue-600/25">
-                  <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 shadow-sm shadow-blue-600/25">
+                  <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><g transform="translate(12,11) scale(0.3) translate(-12,-11)"><path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/><path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/><path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/><path d="M13.5 6a5 5 0 0 1 5 5v2.5"/></g>
                   </svg>
                 </span>
-                <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
+                <span className="text-xl font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
               </a>
               <p className="mt-5 text-sm leading-relaxed text-slate-500">
                 AI-powered vendor compliance management for construction companies. Never miss an expired document again.
