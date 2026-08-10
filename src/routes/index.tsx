@@ -310,7 +310,7 @@ function Home() {
       </nav>
 
       {/* ═══════════ Hero ═══════════ */}
-      <section className="hero-bg relative flex min-h-[92dvh] items-center overflow-hidden bg-slate-900">
+      <section className="hero-bg relative flex min-h-[65dvh] items-center overflow-hidden bg-slate-900">
         {/* Background image */}
         <div
           className="absolute inset-0"
@@ -329,7 +329,7 @@ function Home() {
         {/* Grain */}
         <div className="grain-bg absolute inset-0"></div>
 
-        <div className="relative mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
+        <div className="relative mx-auto w-full max-w-7xl px-6 py-14 sm:py-18">
           <div className="mx-auto max-w-5xl text-center">
             {/* Warning label — subtle and refined */}
             <span className="inline-flex items-center gap-2 rounded-full border border-red-400/15 bg-red-500/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-red-300/80 backdrop-blur-sm">
@@ -370,7 +370,7 @@ function Home() {
       {/* ═══════════ We Do The Work ═══════════ */}
       <section
         id="we-do-the-work"
-        className="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-white to-white py-28 sm:py-36"
+        className="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-white to-white py-14 sm:py-18"
       >
         <div className="dot-pattern absolute inset-0"></div>
         <div className="relative mx-auto max-w-7xl px-6">
@@ -447,7 +447,7 @@ function Home() {
       {/* ═══════════ Monday Report Mock ═══════════ */}
       <section
         id="monday-report"
-        className="relative overflow-hidden bg-slate-50 py-28 sm:py-36"
+        className="relative overflow-hidden bg-slate-50 py-14 sm:py-18"
       >
         <div className="dot-pattern absolute inset-0"></div>
         <div className="relative mx-auto max-w-6xl px-6">
@@ -655,7 +655,7 @@ function Home() {
       </section>
 
       {/* ═══════════ How It Works ═══════════ */}
-      <section id="how-it-works" className="py-28 sm:py-36">
+      <section id="how-it-works" className="py-14 sm:py-18">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center animate-on-scroll">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
@@ -755,7 +755,7 @@ function Home() {
       </section>
 
       {/* ═══════════ Audit Section ═══════════ */}
-      <section id="audit" className="relative py-28 sm:py-36 bg-white">
+      <section id="audit" className="relative py-14 sm:py-18 bg-white">
         <div className="dot-pattern absolute inset-0"></div>
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center animate-on-scroll">
@@ -838,7 +838,7 @@ function Home() {
       <InlineCTA note="When the auditor calls, you'll already be done. Start your free trial." />
 
       {/* ═══════════ Document Types ═══════════ */}
-      <section className="py-28 sm:py-36">
+      <section className="py-14 sm:py-18">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center animate-on-scroll">
             <h2 className="text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
@@ -920,7 +920,7 @@ function Home() {
       </section>
 
       {/* ═══════════ Pricing ═══════════ */}
-      <section id="pricing" className="relative py-28 sm:py-36 bg-white">
+      <section id="pricing" className="relative py-14 sm:py-18 bg-white">
         <div className="dot-pattern absolute inset-0"></div>
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center animate-on-scroll">
@@ -1022,7 +1022,7 @@ function Home() {
       {/* ═══════════ CTA ═══════════ */}
       <section
         id="contact"
-        className="hero-bg relative flex min-h-[80dvh] items-center overflow-hidden bg-slate-900 py-32 sm:py-40"
+        className="hero-bg relative flex min-h-[50dvh] items-center overflow-hidden bg-slate-900 py-14 sm:py-18"
       >
         <div
           className="absolute inset-0"
