@@ -7,9 +7,9 @@ const getBusinessName = createServerFn({ method: "GET" }).handler(async () => {
     const cfg = JSON.parse(await readFile("site.json", "utf8")) as {
       businessName?: string;
     };
-    return cfg.businessName?.trim() ?? "ClearToPay Compliance";
+    return cfg.businessName?.trim() ?? "ClearToPay Construction";
   } catch {
-    return "ClearToPay Compliance";
+    return "ClearToPay Construction";
   }
 });
 

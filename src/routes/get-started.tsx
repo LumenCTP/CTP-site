@@ -364,7 +364,7 @@ function GetStarted() {
               <span className="text-base font-bold tracking-tight text-slate-900">ClearToPay</span>
             </a>
             <span className="text-sm text-slate-400">
-              &copy; {new Date().getFullYear()} ClearToPay Compliance. All rights reserved.
+              &copy; {new Date().getFullYear()} ClearToPay Construction. All rights reserved.
             </span>
             <div className="flex gap-8 text-sm text-slate-400">
               <a href="/" className="transition-colors hover:text-slate-600">Home</a>

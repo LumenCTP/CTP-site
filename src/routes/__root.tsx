@@ -13,7 +13,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ClearToPay Compliance — AI-Powered Vendor Compliance for Construction" },
+      { title: "ClearToPay Construction — AI-Powered Vendor Compliance for Construction" },
       { name: "description", content: "Automate vendor compliance management. AI processes COIs, W-9s, and insurance docs. Weekly Clear-to-Pay reports. Audit-ready packages in minutes. Built for construction companies." },
     ],
     links: [
