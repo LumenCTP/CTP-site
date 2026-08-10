@@ -333,12 +333,6 @@ function Home() {
               Pricing
             </a>
             <a
-              href="/partners"
-              className="transition-colors hover:text-blue-600"
-            >
-              Partners
-            </a>
-            <a
               href="#contact"
               data-spy="contact"
               className="transition-all duration-300 hover:text-blue-600"
@@ -348,7 +342,7 @@ function Home() {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="https://cleartopay.ctonew.app/app/login"
+              href="https://cleartopay-dev.ctonew.app/app/login"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600"
             >
               Sign In
@@ -541,7 +535,7 @@ function Home() {
                   Approved
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-amber-600">
-                  <span className="h-2 w-2 rounded-full bg-amber-500"></span>5
+                  <span className="h-2 w-2 rounded-full bg-amber-500"></span>4
                   Review
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-red-500">
@@ -838,7 +832,7 @@ function Home() {
                   A real audit request, handled in minutes
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
-                  Your client requests a date range — say,{" "}
+                  Your auditor requests a date range — say,{" "}
                   <strong className="font-semibold text-slate-800">
                     Jan 15, 2025 through Jan 15, 2026
                   </strong>{" "}
@@ -998,17 +992,17 @@ function Home() {
               </h3>
               <div className="mt-5 flex items-baseline gap-2">
                 <span className="text-5xl font-black tracking-[-0.02em] text-slate-900">
-                  $179
+                  $149
                 </span>
                 <span className="text-sm font-medium text-slate-500">
-                  /month after free trial
+                  /month
                 </span>
               </div>
               <div className="mt-6 space-y-1.5">
                 <p className="inline-flex rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold text-blue-700">
-                  Your First Month is Free
+                  First Month Free
                 </p>
-                <p className="text-sm text-slate-500">Cancel anytime.</p>
+                <p className="text-sm text-slate-500">Billed automatically each month after your free trial. Cancel anytime.</p>
               </div>
               <ul className="mt-8 flex-1 space-y-3.5 text-sm text-slate-600">
                 {pricingFeatures.map((f) => (
@@ -1036,18 +1030,18 @@ function Home() {
               </h3>
               <div className="mt-5 flex items-baseline gap-2">
                 <span className="text-5xl font-black tracking-[-0.02em] text-slate-900">
-                  $149
+                  $1,200
                 </span>
                 <span className="text-sm font-medium text-slate-500">
-                  /month after free trial
+                  /year
                 </span>
               </div>
               <div className="mt-6 space-y-1.5">
                 <p className="inline-flex rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white">
-                  Your First Month is Free
+                  First Month Free
                 </p>
                 <p className="text-sm font-bold text-blue-600">
-                  Save $360/year
+                  That's $100/month, billed once a year after your free trial. Save $588 vs. monthly.
                 </p>
               </div>
               <ul className="mt-8 flex-1 space-y-3.5 text-sm text-slate-600">
@@ -1206,7 +1200,7 @@ function Home() {
                     href="/partners"
                     className="text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
-                    Partner Program
+                    Partners With Us
                   </a>
                 </li>
               </ul>
@@ -1229,7 +1223,7 @@ function Home() {
                     href="/partners"
                     className="text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
-                    Partner Program
+                    Partners With Us
                   </a>
                 </li>
                 <li>

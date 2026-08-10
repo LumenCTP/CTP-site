@@ -96,15 +96,21 @@ function GetStarted() {
       <nav className="sticky top-0 z-50 border-b border-slate-200/60 bg-slate-900/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="/" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600">
-              <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 shadow-sm shadow-blue-600/25">
+              <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <g transform="translate(12,11) scale(0.45) translate(-12,-11)">
+                  <path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/>
+                  <path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/>
+                  <path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/>
+                  <path d="M13.5 6a5 5 0 0 1 5 5v2.5"/>
+                </g>
               </svg>
             </span>
-            <span className="text-xl font-extrabold tracking-tight text-white">ClearToPay</span>
+            <span className="text-xl font-extrabold tracking-tight text-white">ClearToPay Construction</span>
           </a>
           <div className="flex items-center gap-6">
-            <a href="https://cleartopay.ctonew.app/app/login" className="text-sm font-medium text-slate-400 transition-colors hover:text-white">
+            <a href="https://cleartopay-dev.ctonew.app/app/login" className="text-sm font-medium text-slate-400 transition-colors hover:text-white">
               Sign In
             </a>
             <a href="/" className="text-sm font-medium text-slate-400 transition-colors hover:text-white">
@@ -167,11 +173,11 @@ function GetStarted() {
                     )}
                   </div>
                   <div className="mt-3">
-                    <span className="text-3xl font-extrabold text-slate-900">$179</span>
-                    <span className="text-slate-400 font-medium">/month after free trial</span>
+                    <span className="text-3xl font-extrabold text-slate-900">$149</span>
+                    <span className="text-slate-400 font-medium">/month</span>
                   </div>
-                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">Your First Month is Free</p>
-                  <p className="mt-2 text-sm text-slate-500">Cancel anytime.</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">First Month Free</p>
+                  <p className="mt-2 text-sm text-slate-500">Billed automatically each month after your free trial. Cancel anytime.</p>
                   <ul className="mt-5 space-y-2.5 text-sm text-slate-600">
                     {["Clear-to-Pay reports every Monday", "Unlimited vendor tracking", "Audit packages on demand", "AI document processing", "Email support"].map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
@@ -207,11 +213,11 @@ function GetStarted() {
                     )}
                   </div>
                   <div className="mt-3">
-                    <span className="text-3xl font-extrabold text-slate-900">$149</span>
-                    <span className="text-slate-400 font-medium">/month after free trial</span>
+                    <span className="text-3xl font-extrabold text-slate-900">$1,200</span>
+                    <span className="text-slate-400 font-medium">/year</span>
                   </div>
-                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">Your First Month is Free</p>
-                  <p className="mt-2 text-sm font-bold text-blue-600">Save $360/year</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">First Month Free</p>
+                  <p className="mt-2 text-sm text-slate-500">That's $100/month, billed once a year after your free trial ends. Save $588 vs. monthly.</p>
                   <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
                     <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
@@ -321,7 +327,15 @@ function GetStarted() {
                         {selectedPlan === "annual" ? "Annual Plan" : "Month-to-Month"}
                       </span>
                       <span className="text-sm font-bold text-slate-900">
-                        {selectedPlan === "annual" ? "$149/month" : "$179/month"}
+                        {selectedPlan === "annual" ? "$1,200/year" : "$149/month"}
+                      </span>
+                    </div>
+                    <div className="mt-2 flex items-center justify-between">
+                      <span className="text-sm text-slate-600">
+                        {selectedPlan === "annual" ? "Billed once per year" : "Billed monthly"}
+                      </span>
+                      <span className="text-sm text-slate-500">
+                        {selectedPlan === "annual" ? "after free trial" : "after free trial"}
                       </span>
                     </div>
                     <div className="mt-2 flex items-center justify-between">
@@ -333,6 +347,18 @@ function GetStarted() {
                       <span className="text-2xl font-extrabold text-green-600">$0</span>
                     </div>
                   </div>
+
+                  {/* Terms agreement */}
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" required className="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+                    <span className="text-sm text-slate-600">
+                      I agree to the{" "}
+                      <a href="/terms" target="_blank" className="text-blue-600 underline hover:text-blue-700">Terms of Service</a>
+                      {" "}and{" "}
+                      <a href="/privacy" target="_blank" className="text-blue-600 underline hover:text-blue-700">Privacy Policy</a>.
+                      {selectedPlan === "annual" ? " I understand I will be charged $1,200 once per year after my free trial." : " I understand I will be charged $149 each month after my free trial."}
+                    </span>
+                  </label>
 
                   {/* Submit */}
                   <button
@@ -358,12 +384,18 @@ function GetStarted() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
             <a href="/" className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
-                <svg className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 shadow-sm shadow-blue-600/25">
+                <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <g transform="translate(12,11) scale(0.45) translate(-12,-11)">
+                    <path d="M3.5 16a.8.8 0 0 0 .8.8h15.4a.8.8 0 0 0 .8-.8v-1a.8.8 0 0 0-.8-.8H4.3a.8.8 0 0 0-.8.8z"/>
+                    <path d="M10.5 9.5V5.5a.8.8 0 0 1 .8-.8h1.4a.8.8 0 0 1 .8.8v4"/>
+                    <path d="M5.5 13.5v-2.5a5 5 0 0 1 5-5"/>
+                    <path d="M13.5 6a5 5 0 0 1 5 5v2.5"/>
+                  </g>
                 </svg>
               </span>
-              <span className="text-base font-bold tracking-tight text-slate-900">ClearToPay</span>
+              <span className="text-base font-bold tracking-tight text-slate-900">ClearToPay Construction</span>
             </a>
             <span className="text-sm text-slate-400">
               &copy; {new Date().getFullYear()} ClearToPay Construction. All rights reserved.

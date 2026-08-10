@@ -8,7 +8,7 @@ const productLinks = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Audits", href: "/#audit" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "Partner Program", href: "/partners" },
+  { label: "Partners With Us", href: "/partners" },
 ];
 
 const legalLinks = [
@@ -56,7 +56,7 @@ export function PageShell({ children }: { children: ReactNode }) {
           <Logo />
           <div className="flex items-center gap-3">
             <a
-              href="https://cleartopay.ctonew.app/app/login"
+              href="https://cleartopay-dev.ctonew.app/app/login"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600"
             >
               Sign In
