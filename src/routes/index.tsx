@@ -263,7 +263,7 @@ function Home() {
               {/* Clear to Pay */}
               <div className="border-b border-slate-100 p-8 md:border-b-0 md:border-r">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-green-100 text-sm font-black text-green-600">&check;</span>
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-green-100 text-sm font-black text-green-600">✓</span>
                   <h3 className="text-xs font-bold uppercase tracking-wider text-green-700">Clear to Pay</h3>
                 </div>
                 <ul className="mt-5 space-y-2.5">
@@ -277,7 +277,7 @@ function Home() {
                   ].map((v) => (
                     <li key={v.name} className="flex items-center justify-between rounded-xl bg-green-50/80 px-4 py-3">
                       <span className="text-sm font-semibold text-slate-800">{v.name}</span>
-                      <span className="text-sm font-bold text-green-600">&check;</span>
+                      <span className="text-sm font-bold text-green-600">✓</span>
                     </li>
                   ))}
                 </ul>
@@ -286,7 +286,7 @@ function Home() {
               {/* Review */}
               <div className="border-b border-slate-100 p-8 md:border-b-0 md:border-r">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-100 text-sm font-black text-amber-600">&#9888;</span>
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-100 text-sm font-black text-amber-600">⚠</span>
                   <h3 className="text-xs font-bold uppercase tracking-wider text-amber-700">Review</h3>
                 </div>
                 <ul className="mt-5 space-y-2.5">
@@ -301,7 +301,7 @@ function Home() {
                         <span className="block text-sm font-semibold text-slate-800">{v.name}</span>
                         <span className="mt-0.5 block text-xs text-amber-700">{v.note}</span>
                       </div>
-                      <span className="text-lg font-bold text-amber-600">&#9888;</span>
+                      <span className="text-lg font-bold text-amber-600">⚠</span>
                     </li>
                   ))}
                 </ul>
@@ -310,7 +310,7 @@ function Home() {
               {/* Hold */}
               <div className="p-8">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-red-100 text-sm font-black text-red-500">&times;</span>
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-red-100 text-sm font-black text-red-500">✕</span>
                   <h3 className="text-xs font-bold uppercase tracking-wider text-red-600">Hold</h3>
                 </div>
                 <ul className="mt-5 space-y-2.5">
@@ -324,7 +324,7 @@ function Home() {
                         <span className="block text-sm font-semibold text-slate-800">{v.name}</span>
                         <span className="mt-0.5 block text-xs text-red-600">{v.note}</span>
                       </div>
-                      <span className="text-lg font-bold text-red-500">&times;</span>
+                      <span className="text-lg font-bold text-red-500">✕</span>
                     </li>
                   ))}
                 </ul>
