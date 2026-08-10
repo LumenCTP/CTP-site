@@ -8,6 +8,7 @@ const productLinks = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Audits", href: "/#audit" },
   { label: "Pricing", href: "/#pricing" },
+  { label: "Partner Program", href: "/partners" },
 ];
 
 const legalLinks = [

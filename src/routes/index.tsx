@@ -125,6 +125,7 @@ function Home() {
             <a href="#how-it-works" className="transition-colors hover:text-blue-600">How It Works</a>
             <a href="#audit" className="transition-colors hover:text-blue-600">Audits</a>
             <a href="#pricing" className="transition-colors hover:text-blue-600">Pricing</a>
+            <a href="/partners" className="transition-colors hover:text-blue-600">Partners</a>
             <a href="#contact" className="transition-colors hover:text-blue-600">Contact</a>
           </div>
           <div className="flex items-center gap-3">
@@ -669,12 +670,14 @@ function Home() {
                 <li><a href="#how-it-works" className="text-sm text-slate-600 transition-colors hover:text-blue-600">How It Works</a></li>
                 <li><a href="#audit" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Audits</a></li>
                 <li><a href="#pricing" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Pricing</a></li>
+                <li><a href="/partners" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Partner Program</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Company</h4>
               <ul className="mt-5 space-y-3">
                 <li><a href="/contact" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Contact</a></li>
+                <li><a href="/partners" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Partner Program</a></li>
                 <li><a href="/privacy" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Privacy Policy</a></li>
                 <li><a href="/terms" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Terms of Service</a></li>
                 <li><a href="/partners/terms" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Partner Terms</a></li>
