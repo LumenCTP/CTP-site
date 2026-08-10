@@ -86,6 +86,22 @@ const pricingFeatures = [
   "Email + chat support",
 ];
 
+/* ── Inline conversion CTA (clean, centered — not a full section) ── */
+function InlineCTA({ note = "First month free · Set up in about an hour · Cancel anytime" }: { note?: string }) {
+  return (
+    <div className="mx-auto max-w-3xl px-6 py-14 text-center animate-on-scroll">
+      <a
+        href="/get-started"
+        className="btn-glow inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-4 text-base font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-2xl hover:shadow-blue-600/40"
+      >
+        Start Free Trial
+        <span aria-hidden="true" className="text-lg leading-none">&rarr;</span>
+      </a>
+      <p className="mt-4 text-sm text-slate-500">{note}</p>
+    </div>
+  );
+}
+
 function Home() {
   const businessName = Route.useLoaderData();
 
@@ -104,8 +120,8 @@ function Home() {
             <span className="text-xl font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
           </a>
           <div className="hidden gap-8 text-sm font-medium text-slate-700 md:flex">
-            <a href="#problem" className="transition-colors hover:text-blue-600">The Problem</a>
-            <a href="#features" className="transition-colors hover:text-blue-600">How We Fix It</a>
+            <a href="#we-do-the-work" className="transition-colors hover:text-blue-600">We Do the Work</a>
+            <a href="#monday-report" className="transition-colors hover:text-blue-600">Monday Report</a>
             <a href="#how-it-works" className="transition-colors hover:text-blue-600">How It Works</a>
             <a href="#audit" className="transition-colors hover:text-blue-600">Audits</a>
             <a href="#pricing" className="transition-colors hover:text-blue-600">Pricing</a>
@@ -115,8 +131,8 @@ function Home() {
             <a href="https://cleartopay.ctonew.app/app/login" className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600">
               Sign In
             </a>
-            <a href="https://cleartopay.ctonew.app/app/register" className="btn-glow rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30">
-              Get Protected
+            <a href="/get-started" className="btn-glow rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30">
+              Start Free Trial
             </a>
           </div>
         </div>
@@ -140,115 +156,183 @@ function Home() {
         <div className="relative mx-auto w-full max-w-7xl px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-5xl text-center">
             {/* Warning label — subtle and refined */}
-            <span className="inline-flex items-center gap-2 rounded-full border border-red-300/20 bg-red-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-red-400 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-red-400/15 bg-red-500/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-red-300/80 backdrop-blur-sm">
               <IconAlertTriangle />
               One missing COI can cost you everything
             </span>
 
-            <h1 className="mt-10 text-6xl font-black tracking-[-0.025em] text-white sm:text-7xl lg:text-8xl leading-[0.95]">
-              A single expired W-9 or lapsed COI can{" "}
-              <span className="text-red-400">cost you thousands</span>
-              {" "}in fines, stopped work, and failed audits
+            <h1 className="mt-10 text-5xl font-black tracking-[-0.025em] text-white sm:text-6xl lg:text-7xl leading-[1.02]">
+              We manage your subcontractor compliance so you know who is{" "}
+              <span className="text-blue-400">Clear to Pay</span>.
             </h1>
 
-            <p className="mt-10 text-lg leading-relaxed text-slate-300 sm:text-xl max-w-3xl mx-auto">
-              General contractors lose an average of{" "}
-              <strong className="text-white font-semibold">$12,000 per audit failure</strong>.
-              One subcontractor without workers' comp? That's on you. One expired
-              certificate of insurance? Your project stops.{" "}
-              <strong className="text-blue-300 font-semibold">{businessName}</strong>{" "}
-              handles all of it — so you never have to think about compliance again.
+            <p className="mt-8 text-lg leading-relaxed text-slate-300 sm:text-xl max-w-3xl mx-auto">
+              We collect COIs, track expirations, follow up with vendors, send weekly
+              payment-status reports, and organize your records for audit.
             </p>
 
-            {/* Stat badges */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              <div className="stat-badge glass-card rounded-2xl px-6 py-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Avg Audit Failure Cost</span>
-                <p className="mt-1 text-3xl font-extrabold text-white tracking-tight">$12,000</p>
-              </div>
-              <div className="stat-badge glass-card rounded-2xl px-6 py-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Expired Docs Found in Audit</span>
-                <p className="mt-1 text-3xl font-extrabold text-red-400 tracking-tight">47 docs</p>
-              </div>
-              <div className="stat-badge glass-card rounded-2xl px-6 py-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Manual Checking Per Week</span>
-                <p className="mt-1 text-3xl font-extrabold text-white tracking-tight">6 hours</p>
-              </div>
-            </div>
-
             {/* CTAs */}
-            <div className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <a href="https://cleartopay.ctonew.app/app/register" className="btn-glow w-full rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-2xl hover:shadow-blue-600/40 sm:w-auto">
-                Let Us Take This Off Your Hands
+            <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <a href="/get-started" className="btn-glow w-full rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-2xl hover:shadow-blue-600/40 sm:w-auto">
+                Start Free Trial
               </a>
-              <a href="#problem" className="w-full rounded-2xl border border-white/20 bg-white/5 px-10 py-5 text-lg font-semibold text-slate-200 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/30 sm:w-auto">
-                See What's at Stake
+              <a href="#how-it-works" className="w-full rounded-2xl border border-white/25 bg-white/5 px-10 py-5 text-lg font-semibold text-slate-200 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/40 sm:w-auto">
+                See How It Works
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ The Problem ═══════════ */}
-      <section id="problem" className="py-28 sm:py-36">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mx-auto max-w-2xl text-center animate-on-scroll">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-red-400">The Problem</span>
+      {/* ═══════════ We Do The Work ═══════════ */}
+      <section id="we-do-the-work" className="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-white to-white py-28 sm:py-36">
+        <div className="dot-pattern absolute inset-0"></div>
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-3xl text-center animate-on-scroll">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">We Do The Work</span>
             <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
-              This is what keeps general contractors up at night
+              We chase the paperwork. You build the business.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500">
-              And it happens more often than anyone wants to admit.
+              This is <strong className="font-semibold text-slate-700">not</strong> another piece of
+              software you have to operate. We do the actual work — your vendors hear from us, not from you.
             </p>
           </div>
 
-          <div className="mt-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              {
-                title: "The Expired COI That Stopped a $4M Project",
-                desc: "A framing subcontractor's general liability policy lapsed on a Tuesday. Nobody noticed. On Wednesday, an OSHA inspector showed up. The GC was fined $18,500 and the project was shut down for 11 days.",
-                cost: "$18,500 fine + 11 days lost",
-              },
-              {
-                title: "The Missing W-9 That Triggered an IRS Audit",
-                desc: "A plumbing sub never submitted a W-9. Two years of 1099s were filed wrong. The IRS came knocking. The GC spent $34,000 on accountants, penalties, and back taxes — for one missing form.",
-                cost: "$34,000 in penalties and fees",
-              },
-              {
-                title: "The Workers' Comp Certificate Nobody Checked",
-                desc: "A drywall crew's workers' comp expired mid-project. A worker got injured. The claim went to the GC's policy instead — because the sub wasn't covered. Premiums doubled for the next three years.",
-                cost: "3 years of doubled premiums",
-              },
-              {
-                title: "The Audit That Found 47 Expired Documents",
-                desc: "A mid-size commercial GC faced their annual insurance audit. The auditor found 47 expired certificates across 23 vendors. The result? Their umbrella policy was revoked, and bonding capacity was cut by 60%.",
-                cost: "Revoked policy + 60% less bonding",
-              },
-              {
-                title: "The Monday Morning Surprise",
-                desc: "Every Monday, an office manager spends 6 hours manually checking vendor files, sending emails, and building a spreadsheet of who can be paid — only to miss three expiring certificates. Again.",
-                cost: "6 hours/week. Every week. Forever.",
-              },
-              {
-                title: "The Subcontractor Who Was Never Insured",
-                desc: "A new electrical sub was added to the project in a rush. Nobody verified their COI. They were never insured. When a panel caught fire causing $200K in damage, the GC's own policy had to cover every cent.",
-                cost: "$200,000 uncovered claim",
-              },
-            ].map((item) => (
-              <div key={item.title} className="card-lift group flex flex-col rounded-2xl border border-slate-200/70 bg-white p-8">
-                <h3 className="text-base font-bold leading-snug text-slate-900">
-                  {item.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{item.desc}</p>
-                <div className="cost-badge mt-6 inline-flex items-center gap-2 self-start rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-400">
-                  <IconAlertTriangle />
-                  {item.cost}
+              { icon: <IconBell />, title: "We Contact Your Vendors Directly", desc: "We reach out to every vendor and their insurance agent to request the documents you need — so you never have to play phone tag." },
+              { icon: <IconDoc />, title: "We Request Missing Documents", desc: "Missing COI? W-9? Insurance certificate? We ask for it on your behalf, professionally and persistently, until it arrives." },
+              { icon: <IconClipboard />, title: "We Follow Up on Renewals Early", desc: "Before a policy expires, we're already on it. Renewals are requested and chased ahead of time, so coverage never lapses." },
+              { icon: <IconChart />, title: "We Track Every Expiration Date", desc: "Every COI, W-9, license, and policy date — tracked to the day. Nothing expires silently on your watch." },
+              { icon: <IconFolder />, title: "We Keep Files Audit-Ready", desc: "Organized, versioned, and searchable records, maintained continuously. When the auditor asks, your files are already in order." },
+              { icon: <IconHardHat />, title: "You Just Run Your Business", desc: "No chasing, no spreadsheets, no Monday-morning panic. You build. We handle compliance." },
+            ].map((f) => (
+              <div key={f.title} className="card-lift group rounded-2xl border border-slate-200/60 bg-white p-8 shadow-sm">
+                <div className="feature-icon mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-600/25">
+                  {f.icon}
                 </div>
+                <h3 className="text-lg font-bold tracking-[-0.01em] text-slate-900">{f.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Inline CTA — after We Do the Work */}
+      <InlineCTA />
+
+      {/* ═══════════ Monday Report Mock ═══════════ */}
+      <section id="monday-report" className="relative overflow-hidden bg-slate-50 py-28 sm:py-36">
+        <div className="dot-pattern absolute inset-0"></div>
+        <div className="relative mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-3xl text-center animate-on-scroll">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">The Monday Report</span>
+            <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
+              Every Monday morning, you know exactly who's clear to pay.
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-slate-500">
+              One glance. Every vendor, every week. No spreadsheets, no digging through files.
+            </p>
+          </div>
+
+          {/* Dashboard card */}
+          <div className="mt-16 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/10 animate-on-scroll">
+            {/* Card header */}
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 px-8 py-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white">
+                  <IconShield />
+                </span>
+                <div>
+                  <p className="text-sm font-bold text-slate-900">Clear-to-Pay Report</p>
+                  <p className="text-xs text-slate-500">Delivered every Monday &middot; 7:00 AM ET</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-5 text-xs font-bold">
+                <span className="inline-flex items-center gap-1.5 text-green-600"><span className="h-2 w-2 rounded-full bg-green-500"></span>24 Approved</span>
+                <span className="inline-flex items-center gap-1.5 text-amber-600"><span className="h-2 w-2 rounded-full bg-amber-500"></span>5 Review</span>
+                <span className="inline-flex items-center gap-1.5 text-red-500"><span className="h-2 w-2 rounded-full bg-red-500"></span>2 Hold</span>
+              </div>
+            </div>
+
+            {/* Three status columns */}
+            <div className="grid md:grid-cols-3">
+              {/* Clear to Pay */}
+              <div className="border-b border-slate-100 p-8 md:border-b-0 md:border-r">
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-green-100 text-sm font-black text-green-600">&check;</span>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-green-700">Clear to Pay</h3>
+                </div>
+                <ul className="mt-5 space-y-2.5">
+                  {[
+                    { name: "Apex Framing Co." },
+                    { name: "Summit Electric" },
+                    { name: "Cascade Plumbing" },
+                    { name: "Ironclad Steel" },
+                    { name: "BlueLine HVAC" },
+                    { name: "Heritage Roofing" },
+                  ].map((v) => (
+                    <li key={v.name} className="flex items-center justify-between rounded-xl bg-green-50/80 px-4 py-3">
+                      <span className="text-sm font-semibold text-slate-800">{v.name}</span>
+                      <span className="text-sm font-bold text-green-600">&check;</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Review */}
+              <div className="border-b border-slate-100 p-8 md:border-b-0 md:border-r">
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-100 text-sm font-black text-amber-600">&#9888;</span>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-amber-700">Review</h3>
+                </div>
+                <ul className="mt-5 space-y-2.5">
+                  {[
+                    { name: "Cornerstone Concrete", note: "COI expires this Friday" },
+                    { name: "Metro Glass &amp; Glazing", note: "W-9 not yet received" },
+                    { name: "Frontier Excavating", note: "Workers' comp renewal pending" },
+                    { name: "Lakeside Millwork", note: "Umbrella limit below requirement" },
+                  ].map((v) => (
+                    <li key={v.name} className="rounded-xl bg-amber-50/80 px-4 py-3">
+                      <span className="block text-sm font-semibold text-slate-800">{v.name}</span>
+                      <span className="mt-0.5 block text-xs text-amber-700">{v.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Hold */}
+              <div className="p-8">
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-red-100 text-sm font-black text-red-500">&times;</span>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-red-600">Hold</h3>
+                </div>
+                <ul className="mt-5 space-y-2.5">
+                  {[
+                    { name: "Harbor Drywall", note: "No workers' comp on file" },
+                    { name: "NorthGate Paving", note: "COI expired June 2" },
+                    { name: "Redline Security", note: "Business license lapsed" },
+                  ].map((v) => (
+                    <li key={v.name} className="rounded-xl bg-red-50/80 px-4 py-3">
+                      <span className="block text-sm font-semibold text-slate-800">{v.name}</span>
+                      <span className="mt-0.5 block text-xs text-red-600">{v.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-8 text-center text-sm text-slate-500 animate-on-scroll">
+            Delivered to your inbox every Monday morning — PDF and Excel. Forward it to your project managers and you're done.
+          </p>
+        </div>
+      </section>
+
+      {/* Inline CTA — after Monday Report mock */}
+      <InlineCTA note="See your vendors grouped exactly like this, every single Monday." />
 
       {/* ═══════════ Image Banner 1 ═══════════ */}
       <section className="relative h-80 sm:h-96 overflow-hidden">
@@ -265,91 +349,71 @@ function Home() {
         </div>
       </section>
 
-      {/* ═══════════ The Fix / Features ═══════════ */}
-      <section id="features" className="relative py-28 sm:py-36 bg-white">
-        <div className="dot-pattern absolute inset-0"></div>
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="mx-auto max-w-2xl text-center animate-on-scroll">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">The Fix</span>
-            <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
-              We take compliance off your hands. Completely.
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-slate-500">
-              No more spreadsheets. No more chasing vendors. No more Monday morning panic.
-            </p>
-          </div>
-
-          <div className="mt-24 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { icon: <IconDoc />, title: "AI Reads Every Document", desc: "COIs, W-9s, workers' comp, general liability, commercial auto, umbrella, business licenses — drop them in and our AI extracts every field. Vendor name, carrier, policy number, effective date, expiration date. Automatically." },
-              { icon: <IconSearch />, title: "Nothing Slips Through", desc: "Every document is checked. Every expiration date is tracked. Every vendor is evaluated against your specific requirements. If anything is missing, expired, or expiring this week — you'll know before it becomes a problem." },
-              { icon: <IconChart />, title: "Monday Morning Report — Every Week", desc: "Every Monday by 6 AM, you get a Clear-to-Pay Report showing exactly which vendors are approved for payment for the entire week. PDF and Excel. Forward it to your project managers. Done." },
-              { icon: <IconBell />, title: "We Chase Your Vendors, Not You", desc: "We remember who submitted each document. At 30, 15, 7, and 0 days before expiration, we send them automated reminders. They hear from us — not from you. You stay focused on building." },
-              { icon: <IconFolder />, title: "Audit-Ready in 5 Minutes", desc: "When the auditor calls, you don't panic. Select the client, vendor, document type, and date range. Download a complete ZIP with every document, vendor summaries, and compliance reports. Five minutes. Done." },
-              { icon: <IconHardHat />, title: "Built for Construction, by People Who Get It", desc: "We understand retainage, pay-when-paid, joint checks, OCIPs, CCIPs, and the difference between a 201 and an additional insured endorsement. This isn't generic compliance software — it's built for your industry." },
-            ].map((f) => (
-              <div key={f.title} className="card-lift group rounded-2xl border border-slate-200/60 bg-white p-9 shadow-sm">
-                <div className="feature-icon mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-600/25">
-                  {f.icon}
-                </div>
-                <h3 className="text-lg font-bold tracking-[-0.01em] text-slate-900">{f.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══════════ How It Works ═══════════ */}
       <section id="how-it-works" className="py-28 sm:py-36">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center animate-on-scroll">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">How It Works</span>
             <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
-              Three steps. That's it.
+              From vendor list to peace of mind — in five steps.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500">
-              From setup to peace of mind in less time than you think.
+              You hand us the list. We handle everything after that.
             </p>
           </div>
 
-          <div className="mt-24 grid gap-12 sm:grid-cols-3 sm:gap-8">
+          <div className="mt-20 flex flex-wrap items-start justify-center gap-y-16 sm:gap-x-6">
             {[
               {
                 step: "01",
-                title: "We Set You Up",
-                desc: "Tell us what documents your vendors need. COI? W-9? Workers' comp? Business license? We configure your requirements. Then we import your vendor list — from a spreadsheet, CSV, or manual entry. Takes about an hour.",
-                detail: "Your dedicated onboarding specialist handles everything.",
+                title: "Send us your vendor list",
+                desc: "Spreadsheet, CSV, or manual entry. We import every vendor and their requirements. Takes about an hour.",
+                detail: "You've already got the list — just send it over.",
               },
               {
                 step: "02",
-                title: "Documents Come In",
-                desc: "Your vendors, their insurance agents, or your team email documents to your dedicated inbox. Our AI reads every one — extracts the data, checks for completeness, flags anything suspicious.",
-                detail: "You don't sort, file, or review anything.",
+                title: "We collect and monitor documents",
+                desc: "We reach out to every vendor and insurance agent to gather COIs, W-9s, workers' comp, and everything else required.",
+                detail: "Vendors hear from us — not from you.",
               },
               {
                 step: "03",
-                title: "You Get the Answer",
-                desc: "Every Monday morning: a Clear-to-Pay Report in your inbox. Approved. Review. Hold. That's it. You know exactly who can be paid. And when audit season comes, you're ready in minutes.",
-                detail: "Six hours of manual work — gone. Every week.",
+                title: "We follow up on problems",
+                desc: "Missing COI? Expiring next week? We handle it before it becomes your problem — with reminders and follow-ups.",
+                detail: "Problems get solved, quietly, on our end.",
+              },
+              {
+                step: "04",
+                title: "You receive Monday's Clear-to-Pay report",
+                desc: "Approved, Review, Hold. Every vendor, every week — delivered to your inbox with the reasons spelled out.",
+                detail: "Forward it to your team. Done.",
+              },
+              {
+                step: "05",
+                title: "We maintain your audit history",
+                desc: "Every document versioned, organized, and ready. When an audit comes up, your records are already in order.",
+                detail: "Audit-ready from day one.",
               },
             ].map((item, idx) => (
-              <div key={item.step} className="relative flex flex-col items-center text-center">
+              <div key={item.step} className="relative flex w-full max-w-xs flex-col items-center text-center sm:w-[30%]">
                 {/* Vertical connector line — between items on desktop */}
-                {idx < 2 && (
+                {(idx === 0 || idx === 1 || idx === 3) && (
                   <div className="absolute left-1/2 top-14 -z-10 hidden h-[2px] w-full bg-gradient-to-r from-blue-500/20 via-blue-500/40 to-blue-500/20 sm:block" style={{ transform: 'translateX(50%)' }}></div>
                 )}
                 <div className="relative flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-600 to-blue-700 text-2xl font-black text-white shadow-xl shadow-blue-600/25 ring-4 ring-blue-100/80">
                   {item.step}
                 </div>
                 <h3 className="mt-9 text-2xl font-bold tracking-[-0.015em] text-slate-900">{item.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-slate-600 max-w-xs">{item.desc}</p>
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">{item.desc}</p>
                 <p className="mt-4 inline-flex items-center rounded-full bg-blue-50 px-5 py-1.5 text-xs font-semibold text-blue-700 tracking-wide">{item.detail}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Inline CTA — after How It Works */}
+      <InlineCTA note="Set up starts with one email. We'll import your vendors for you." />
 
       {/* ═══════════ Image Banner 2 ═══════════ */}
       <section className="relative h-80 sm:h-96 overflow-hidden">
@@ -371,16 +435,36 @@ function Home() {
         <div className="dot-pattern absolute inset-0"></div>
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center animate-on-scroll">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-red-400">Audit Season</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">Audit Season</span>
             <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
-              When the auditor calls, don't scramble
+              Audit tomorrow? Your files are already ready.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500">
-              Insurance audits. OSHA inspections. GC prequalification. Bank bonding reviews. They all want the same thing: your documents, organized, complete, and ready. Here's what we deliver in under five minutes.
+              Insurance audits. OSHA inspections. GC prequalification. Bank bonding reviews. They all
+              want the same thing: your documents, organized, complete, and ready. We keep them that
+              way — so when they call, you're already done.
             </p>
           </div>
 
-          <div className="mt-24 grid gap-8 sm:grid-cols-2">
+          {/* Key point — a real audit request, handled in minutes */}
+          <div className="mx-auto mt-16 max-w-4xl rounded-2xl border border-blue-100 bg-blue-50/70 p-7 sm:p-9 animate-on-scroll">
+            <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-6">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-600/25">
+                <IconSearch />
+              </span>
+              <div className="text-center sm:text-left">
+                <p className="text-lg font-bold tracking-[-0.01em] text-slate-900">A real audit request, handled in minutes</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
+                  Your client requests a date range — say,{" "}
+                  <strong className="font-semibold text-slate-800">Jan 15, 2025 through Jan 15, 2026</strong> — and
+                  receives every applicable COI, organized by vendor into one audit-ready package.
+                  No digging through filing cabinets. No frantic emails. No scrambling the night before.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-8 sm:grid-cols-2">
             <div className="card-lift flex flex-col rounded-2xl border border-slate-200/60 bg-white p-9 shadow-sm">
               <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                 <IconFolder />
@@ -411,6 +495,9 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Inline CTA — after Audit */}
+      <InlineCTA note="When the auditor calls, you'll already be done. Start your free trial." />
 
       {/* ═══════════ Document Types ═══════════ */}
       <section className="py-28 sm:py-36">
@@ -577,8 +664,8 @@ function Home() {
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Product</h4>
               <ul className="mt-5 space-y-3">
-                <li><a href="#problem" className="text-sm text-slate-600 transition-colors hover:text-blue-600">The Problem</a></li>
-                <li><a href="#features" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Features</a></li>
+                <li><a href="#we-do-the-work" className="text-sm text-slate-600 transition-colors hover:text-blue-600">We Do the Work</a></li>
+                <li><a href="#monday-report" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Monday Report</a></li>
                 <li><a href="#how-it-works" className="text-sm text-slate-600 transition-colors hover:text-blue-600">How It Works</a></li>
                 <li><a href="#audit" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Audits</a></li>
                 <li><a href="#pricing" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Pricing</a></li>
@@ -592,12 +679,12 @@ function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Get Protected</h4>
+              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Start Free Trial</h4>
               <p className="mt-5 text-sm leading-relaxed text-slate-500">
                 Stop chasing compliance documents. Start building.
               </p>
               <a href="/get-started" className="mt-5 inline-flex rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg">
-                Get Started
+                Start Free Trial
               </a>
             </div>
           </div>
