@@ -554,7 +554,7 @@ function Home() {
               <h3 className="text-lg font-bold tracking-[-0.01em] text-slate-900">Month-to-Month</h3>
               <div className="mt-5 flex items-baseline gap-2">
                 <span className="text-5xl font-black tracking-[-0.02em] text-slate-900">$179</span>
-                <span className="text-sm font-medium text-slate-500">/month</span>
+                <span className="text-sm font-medium text-slate-500">/month after free trial</span>
               </div>
               <div className="mt-6 space-y-1.5">
                 <p className="inline-flex rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold text-blue-700">Your First Month is Free</p>
@@ -581,7 +581,7 @@ function Home() {
               <h3 className="text-lg font-bold tracking-[-0.01em] text-slate-900">Annual Plan</h3>
               <div className="mt-5 flex items-baseline gap-2">
                 <span className="text-5xl font-black tracking-[-0.02em] text-slate-900">$149</span>
-                <span className="text-sm font-medium text-slate-500">/month</span>
+                <span className="text-sm font-medium text-slate-500">/month after free trial</span>
               </div>
               <div className="mt-6 space-y-1.5">
                 <p className="inline-flex rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white">Your First Month is Free</p>
@@ -674,7 +674,10 @@ function Home() {
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Company</h4>
               <ul className="mt-5 space-y-3">
-                <li><a href="#contact" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Contact</a></li>
+                <li><a href="/contact" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Contact</a></li>
+                <li><a href="/privacy" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Privacy Policy</a></li>
+                <li><a href="/terms" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Terms of Service</a></li>
+                <li><a href="/partners/terms" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Partner Terms</a></li>
                 <li><a href="/get-started" className="text-sm text-slate-600 transition-colors hover:text-blue-600">Get Started</a></li>
               </ul>
             </div>
