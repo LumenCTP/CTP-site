@@ -491,7 +491,7 @@ function Home() {
                   Review
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-red-500">
-                  <span className="h-2 w-2 rounded-full bg-red-500"></span>2
+                  <span className="h-2 w-2 rounded-full bg-red-500"></span>3
                   Hold
                 </span>
               </div>
