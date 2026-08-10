@@ -296,9 +296,12 @@ function Home() {
                     { name: "Frontier Excavating", note: "Workers' comp renewal pending" },
                     { name: "Lakeside Millwork", note: "Umbrella limit below requirement" },
                   ].map((v) => (
-                    <li key={v.name} className="rounded-xl bg-amber-50/80 px-4 py-3">
-                      <span className="block text-sm font-semibold text-slate-800">{v.name}</span>
-                      <span className="mt-0.5 block text-xs text-amber-700">{v.note}</span>
+                    <li key={v.name} className="flex items-center justify-between rounded-xl bg-amber-50/80 px-4 py-3">
+                      <div>
+                        <span className="block text-sm font-semibold text-slate-800">{v.name}</span>
+                        <span className="mt-0.5 block text-xs text-amber-700">{v.note}</span>
+                      </div>
+                      <span className="text-lg font-bold text-amber-600">&#9888;</span>
                     </li>
                   ))}
                 </ul>
@@ -316,9 +319,12 @@ function Home() {
                     { name: "NorthGate Paving", note: "COI expired June 2" },
                     { name: "Redline Security", note: "Business license lapsed" },
                   ].map((v) => (
-                    <li key={v.name} className="rounded-xl bg-red-50/80 px-4 py-3">
-                      <span className="block text-sm font-semibold text-slate-800">{v.name}</span>
-                      <span className="mt-0.5 block text-xs text-red-600">{v.note}</span>
+                    <li key={v.name} className="flex items-center justify-between rounded-xl bg-red-50/80 px-4 py-3">
+                      <div>
+                        <span className="block text-sm font-semibold text-slate-800">{v.name}</span>
+                        <span className="mt-0.5 block text-xs text-red-600">{v.note}</span>
+                      </div>
+                      <span className="text-lg font-bold text-red-500">&times;</span>
                     </li>
                   ))}
                 </ul>
