@@ -90,7 +90,7 @@ function Home() {
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
             </span>
-            <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay</span>
+            <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
           </a>
           <div className="hidden gap-8 text-sm font-medium text-slate-700 md:flex">
             <a href="#problem" className="transition-colors hover:text-blue-600">The Problem</a>
@@ -482,7 +482,7 @@ function Home() {
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                   </svg>
                 </span>
-                <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay</span>
+                <span className="text-lg font-extrabold tracking-tight text-slate-900">ClearToPay Construction</span>
               </a>
               <p className="mt-5 text-sm leading-relaxed text-slate-500">
                 AI-powered vendor compliance management for construction companies. Never miss an expired document again.
