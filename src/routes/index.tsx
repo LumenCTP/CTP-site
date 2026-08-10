@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { readFile } from "node:fs/promises";
+import { MobileNav } from "../components/MobileNav";
 
 const getBusinessName = createServerFn({ method: "GET" }).handler(async () => {
   try {
@@ -270,9 +271,9 @@ function Home() {
   return (
     <div className="min-h-dvh bg-white text-slate-900 font-sans">
       {/* ═══════════ Navigation ═══════════ */}
-      <nav className="sticky top-0 z-50 border-b border-slate-200/50 bg-white/85 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-          <a href="/" className="flex items-center gap-2.5">
+      <nav className="relative sticky top-0 z-50 border-b border-slate-200/50 bg-white/85 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6">
+          <a href="/" className="flex shrink-0 items-center gap-2.5">
             <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 shadow-sm shadow-blue-600/25">
               <svg
                 className="h-8 w-8 text-white"
@@ -292,67 +293,89 @@ function Home() {
                 </g>
               </svg>
             </span>
-            <span className="text-xl font-extrabold tracking-tight text-slate-900">
+            <span className="hidden text-xl font-extrabold tracking-tight text-slate-900 sm:inline">
               ClearToPay Construction
             </span>
           </a>
-          <div className="hidden gap-8 text-sm font-medium text-slate-700 md:flex">
+          <div className="hidden gap-6 text-sm font-medium text-slate-700 lg:flex">
             <a
               href="#we-do-the-work"
               data-spy="we-do-the-work"
-              className="transition-all duration-300 hover:text-blue-600"
+              className="flex items-center py-3 transition-all duration-300 hover:text-blue-600"
             >
               We Do the Work
             </a>
             <a
               href="#monday-report"
               data-spy="monday-report"
-              className="transition-all duration-300 hover:text-blue-600"
+              className="flex items-center py-3 transition-all duration-300 hover:text-blue-600"
             >
               Monday Report
             </a>
             <a
               href="#how-it-works"
               data-spy="how-it-works"
-              className="transition-all duration-300 hover:text-blue-600"
+              className="flex items-center py-3 transition-all duration-300 hover:text-blue-600"
             >
               How It Works
             </a>
             <a
               href="#audit"
               data-spy="audit"
-              className="transition-all duration-300 hover:text-blue-600"
+              className="flex items-center py-3 transition-all duration-300 hover:text-blue-600"
             >
               Audits
             </a>
             <a
               href="#pricing"
               data-spy="pricing"
-              className="transition-all duration-300 hover:text-blue-600"
+              className="flex items-center py-3 transition-all duration-300 hover:text-blue-600"
             >
               Pricing
             </a>
             <a
               href="#contact"
               data-spy="contact"
-              className="transition-all duration-300 hover:text-blue-600"
+              className="flex items-center py-3 transition-all duration-300 hover:text-blue-600"
             >
               Contact
             </a>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href="https://cleartopay-dev.ctonew.app/app/login"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600"
+              className="hidden items-center py-3 text-sm font-medium text-slate-600 transition-colors hover:text-blue-600 lg:inline-flex"
             >
               Sign In
             </a>
             <a
               href="/get-started"
-              className="btn-glow rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
+              className="btn-glow inline-flex items-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
             >
               Start Free Trial
             </a>
+            <MobileNav
+              links={[
+                { label: "We Do the Work", href: "#we-do-the-work" },
+                { label: "Monday Report", href: "#monday-report" },
+                { label: "How It Works", href: "#how-it-works" },
+                { label: "Audits", href: "#audit" },
+                { label: "Pricing", href: "#pricing" },
+                { label: "Contact", href: "#contact" },
+                { label: "Partners With Us", href: "/partners" },
+                {
+                  label: "Sign In",
+                  href: "https://cleartopay-dev.ctonew.app/app/login",
+                },
+              ]}
+            >
+              <a
+                href="/get-started"
+                className="btn-glow mt-2 flex min-h-12 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-base font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
+              >
+                Start Free Trial
+              </a>
+            </MobileNav>
           </div>
         </div>
       </nav>
@@ -1154,11 +1177,11 @@ function Home() {
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
                 Product
               </h4>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 space-y-1">
                 <li>
                   <a
                     href="#we-do-the-work"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     We Do the Work
                   </a>
@@ -1166,7 +1189,7 @@ function Home() {
                 <li>
                   <a
                     href="#monday-report"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Monday Report
                   </a>
@@ -1174,7 +1197,7 @@ function Home() {
                 <li>
                   <a
                     href="#how-it-works"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     How It Works
                   </a>
@@ -1182,7 +1205,7 @@ function Home() {
                 <li>
                   <a
                     href="#audit"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Audits
                   </a>
@@ -1190,7 +1213,7 @@ function Home() {
                 <li>
                   <a
                     href="#pricing"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Pricing
                   </a>
@@ -1198,7 +1221,7 @@ function Home() {
                 <li>
                   <a
                     href="/partners"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Partners With Us
                   </a>
@@ -1209,11 +1232,11 @@ function Home() {
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
                 Company
               </h4>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 space-y-1">
                 <li>
                   <a
                     href="/contact"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Contact
                   </a>
@@ -1221,7 +1244,7 @@ function Home() {
                 <li>
                   <a
                     href="/partners"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Partners With Us
                   </a>
@@ -1229,7 +1252,7 @@ function Home() {
                 <li>
                   <a
                     href="/privacy"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Privacy Policy
                   </a>
@@ -1237,7 +1260,7 @@ function Home() {
                 <li>
                   <a
                     href="/terms"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Terms of Service
                   </a>
@@ -1245,7 +1268,7 @@ function Home() {
                 <li>
                   <a
                     href="/partners/terms"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Partner Terms
                   </a>
@@ -1253,7 +1276,7 @@ function Home() {
                 <li>
                   <a
                     href="/get-started"
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     Get Started
                   </a>
@@ -1269,7 +1292,7 @@ function Home() {
               </p>
               <a
                 href="/get-started"
-                className="mt-5 inline-flex rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg"
+                className="mt-5 inline-flex rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg"
               >
                 Start Free Trial
               </a>

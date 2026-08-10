@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
+import { MobileNav } from "../components/MobileNav";
 
 export const Route = createFileRoute("/get-started")({
   component: GetStarted,
@@ -118,9 +119,9 @@ function GetStarted() {
     <div className="min-h-dvh bg-slate-50 text-slate-900 font-sans">
 
       {/* ═══════════ Navigation ═══════════ */}
-      <nav className="sticky top-0 z-50 border-b border-slate-200/60 bg-slate-900/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="/" className="flex items-center gap-2.5">
+      <nav className="relative sticky top-0 z-50 border-b border-slate-200/60 bg-slate-900/95 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
+          <a href="/" className="flex shrink-0 items-center gap-2.5">
             <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 shadow-sm shadow-blue-600/25">
               <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -132,15 +133,29 @@ function GetStarted() {
                 </g>
               </svg>
             </span>
-            <span className="text-xl font-extrabold tracking-tight text-white">ClearToPay Construction</span>
+            <span className="hidden text-xl font-extrabold tracking-tight text-white sm:inline">ClearToPay Construction</span>
           </a>
-          <div className="flex items-center gap-6">
-            <a href="https://cleartopay-dev.ctonew.app/app/login" className="text-sm font-medium text-slate-400 transition-colors hover:text-white">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <a href="https://cleartopay-dev.ctonew.app/app/login" className="hidden items-center py-3 text-sm font-medium text-slate-400 transition-colors hover:text-white lg:inline-flex">
               Sign In
             </a>
-            <a href="/" className="text-sm font-medium text-slate-400 transition-colors hover:text-white">
+            <a href="/" className="hidden items-center py-3 text-sm font-medium text-slate-400 transition-colors hover:text-white md:inline-flex">
               &larr; Back to Home
             </a>
+            <MobileNav
+              dark
+              links={[
+                { label: "Back to Home", href: "/" },
+                { label: "Sign In", href: "https://cleartopay-dev.ctonew.app/app/login" },
+              ]}
+            >
+              <a
+                href="/get-started"
+                className="btn-glow mt-2 flex min-h-12 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-base font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
+              >
+                Start Free Trial
+              </a>
+            </MobileNav>
           </div>
         </div>
       </nav>
@@ -282,7 +297,7 @@ function GetStarted() {
 
                 <form onSubmit={handleSubmit} className="mt-10 space-y-6">
                   {/* First & Last Name */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-semibold text-slate-700">
                         First Name <span className="text-red-500">*</span>
@@ -434,11 +449,11 @@ function GetStarted() {
             <span className="text-sm text-slate-400">
               &copy; {new Date().getFullYear()} ClearToPay Construction. All rights reserved.
             </span>
-            <div className="flex gap-8 text-sm text-slate-400">
-              <a href="/" className="transition-colors hover:text-slate-600">Home</a>
-              <a href="/#features" className="transition-colors hover:text-slate-600">Features</a>
-              <a href="/#audit" className="transition-colors hover:text-slate-600">Audits</a>
-              <a href="/#contact" className="transition-colors hover:text-slate-600">Contact</a>
+            <div className="flex gap-6 text-sm text-slate-400">
+              <a href="/" className="inline-block py-3 transition-colors hover:text-slate-600">Home</a>
+              <a href="/#features" className="inline-block py-3 transition-colors hover:text-slate-600">Features</a>
+              <a href="/#audit" className="inline-block py-3 transition-colors hover:text-slate-600">Audits</a>
+              <a href="/#contact" className="inline-block py-3 transition-colors hover:text-slate-600">Contact</a>
             </div>
           </div>
         </div>

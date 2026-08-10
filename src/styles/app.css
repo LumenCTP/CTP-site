@@ -15,10 +15,11 @@
 }
 /* Homepage nav scroll-spy: blue pill on the active section link.
    Unlayered rule so it beats layered utilities (text-slate-700,
-   hover:text-blue-600) regardless of cascade order. */
+   hover:text-blue-600) regardless of cascade order. py-3 keeps the
+   pill the same height as the (44px) base links so it never jumps. */
 a.spy-active,
 a.spy-active:hover {
-  @apply bg-blue-600 text-white rounded-lg px-3 py-1.5;
+  @apply bg-blue-600 text-white rounded-lg px-3 py-3;
 }
 
 /* ── Subtle grain/noise texture ── */

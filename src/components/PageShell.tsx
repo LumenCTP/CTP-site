@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { MobileNav } from "./MobileNav";
 
 /* ── Shared sub-page shell: nav + footer matching the marketing site ── */
 
@@ -40,7 +41,7 @@ function Logo() {
           </g>
         </svg>
       </span>
-      <span className="text-xl font-extrabold tracking-tight text-slate-900">
+      <span className="hidden text-xl font-extrabold tracking-tight text-slate-900 sm:inline">
         ClearToPay Construction
       </span>
     </a>
@@ -51,22 +52,39 @@ export function PageShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-dvh bg-white text-slate-900 font-sans">
       {/* ═══════════ Navigation ═══════════ */}
-      <nav className="sticky top-0 z-50 border-b border-slate-200/50 bg-white/85 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
+      <nav className="relative sticky top-0 z-50 border-b border-slate-200/50 bg-white/85 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6">
           <Logo />
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href="https://cleartopay-dev.ctonew.app/app/login"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600"
+              className="hidden items-center py-3 text-sm font-medium text-slate-600 transition-colors hover:text-blue-600 lg:inline-flex"
             >
               Sign In
             </a>
             <a
               href="/get-started"
-              className="btn-glow rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
+              className="btn-glow inline-flex items-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
             >
               Start Free Trial
             </a>
+            <MobileNav
+              links={[
+                ...productLinks,
+                ...legalLinks,
+                {
+                  label: "Sign In",
+                  href: "https://cleartopay-dev.ctonew.app/app/login",
+                },
+              ]}
+            >
+              <a
+                href="/get-started"
+                className="btn-glow mt-2 flex min-h-12 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-base font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
+              >
+                Start Free Trial
+              </a>
+            </MobileNav>
           </div>
         </div>
       </nav>
@@ -88,12 +106,12 @@ export function PageShell({ children }: { children: ReactNode }) {
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
                 Product
               </h4>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 space-y-1">
                 {productLinks.map((l) => (
                   <li key={l.href}>
                     <a
                       href={l.href}
-                      className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                      className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                     >
                       {l.label}
                     </a>
@@ -105,12 +123,12 @@ export function PageShell({ children }: { children: ReactNode }) {
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
                 Legal
               </h4>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 space-y-1">
                 {legalLinks.map((l) => (
                   <li key={l.href}>
                     <a
                       href={l.href}
-                      className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                      className="inline-block py-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
                     >
                       {l.label}
                     </a>
@@ -127,7 +145,7 @@ export function PageShell({ children }: { children: ReactNode }) {
               </p>
               <a
                 href="/get-started"
-                className="mt-5 inline-flex rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg"
+                className="mt-5 inline-flex rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg"
               >
                 Start Free Trial
               </a>
