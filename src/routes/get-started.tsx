@@ -137,7 +137,7 @@ function GetStarted() {
             <span className="hidden text-xl font-extrabold tracking-tight text-white sm:inline">ClearToPay Construction</span>
           </a>
           {/* Mobile: brand centered at the top */}
-          <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-lg font-extrabold tracking-tight text-white sm:hidden">ClearToPay Construction</span>
+          <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-2xl font-extrabold tracking-tight text-white sm:hidden">ClearToPay Construction</span>
           <div className="flex items-center gap-4 sm:gap-6">
             <a href="https://cleartopay-dev.ctonew.app/app/login" className="hidden items-center py-3 text-sm font-medium text-slate-400 transition-colors hover:text-white lg:inline-flex">
               Sign In

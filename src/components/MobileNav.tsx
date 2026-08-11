@@ -71,7 +71,7 @@ export function MobileNav({
       {open && (
         <div
           className={`absolute inset-x-0 top-full border-b shadow-xl shadow-slate-900/5 lg:hidden ${
-            dark ? "border-slate-700/60 bg-slate-900" : "border-slate-200 bg-white"
+            dark ? "border-slate-700/60 bg-slate-900" : "border-blue-700 bg-blue-600"
           }`}
         >
           <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
@@ -84,7 +84,7 @@ export function MobileNav({
                   className={`flex min-h-11 items-center rounded-xl px-4 py-3 text-base font-medium transition-colors ${
                     dark
                       ? "text-slate-200 hover:bg-white/10 hover:text-white"
-                      : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
+                      : "text-white hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   {l.label}

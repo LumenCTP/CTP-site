@@ -293,12 +293,12 @@ function Home() {
                 </g>
               </svg>
             </span>
-            <span className="hidden text-xl font-extrabold tracking-tight text-slate-900 sm:inline">
+            <span className="hidden text-xl font-extrabold tracking-tight text-blue-600 sm:inline">
               ClearToPay Construction
             </span>
           </a>
           {/* Mobile: brand centered at the top (replaces the header free-trial CTA on phones) */}
-          <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-lg font-extrabold tracking-tight text-slate-900 sm:hidden">
+          <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-2xl font-extrabold tracking-tight text-blue-600 sm:hidden">
             ClearToPay Construction
           </span>
           <div className="hidden gap-6 text-sm font-medium text-slate-700 lg:flex">
@@ -375,7 +375,7 @@ function Home() {
             >
               <a
                 href="/get-started"
-                className="btn-glow mt-2 flex min-h-12 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-base font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
+                className="btn-glow mt-2 flex min-h-12 items-center justify-center rounded-xl bg-white px-4 py-3 text-base font-semibold text-blue-600 shadow-md shadow-blue-900/25 transition-all hover:bg-blue-50"
               >
                 Start Free Trial
               </a>
