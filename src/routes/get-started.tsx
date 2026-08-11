@@ -90,6 +90,7 @@ function GetStarted() {
           company_name: companyName,
           email,
           password,
+          plan: selectedPlan,
           ...(refCode ? { referral_code: refCode } : {}),
         }),
       });

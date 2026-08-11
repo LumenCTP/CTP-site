@@ -501,7 +501,7 @@ function Home() {
                 key={f.title}
                 className="card-lift group rounded-2xl border border-slate-200/60 bg-white p-8 shadow-sm"
               >
-                <div className="feature-icon mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-600/25">
+                <div className="feature-icon mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white transition-colors duration-300 group-hover:bg-blue-700 group-hover:shadow-lg group-hover:shadow-blue-700/25">
                   {f.icon}
                 </div>
                 <h3 className="text-lg font-bold tracking-[-0.01em] text-slate-900">
@@ -544,7 +544,7 @@ function Home() {
             {/* Card header */}
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 px-8 py-6">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">
                   <IconShield />
                 </span>
                 <div>
@@ -851,7 +851,7 @@ function Home() {
           {/* Key point — a real audit request, handled in minutes */}
           <div className="mx-auto mt-16 max-w-4xl rounded-2xl border border-blue-100 bg-blue-50/70 p-7 sm:p-9 animate-on-scroll">
             <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-6">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-600/25">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-600/25">
                 <IconSearch />
               </span>
               <div className="text-center sm:text-left">
@@ -873,7 +873,7 @@ function Home() {
 
           <div className="mt-16 grid gap-8 sm:grid-cols-2">
             <div className="card-lift flex flex-col rounded-2xl border border-slate-200/60 bg-white p-9 shadow-sm">
-              <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">
                 <IconFolder />
               </div>
               <h3 className="text-xl font-bold tracking-[-0.015em] text-slate-900">
@@ -889,7 +889,7 @@ function Home() {
               </ul>
             </div>
             <div className="card-lift flex flex-col rounded-2xl border border-slate-200/60 bg-white p-9 shadow-sm">
-              <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">
                 <IconSearch />
               </div>
               <h3 className="text-xl font-bold tracking-[-0.015em] text-slate-900">
@@ -979,7 +979,7 @@ function Home() {
                 key={item.doc}
                 className="doc-card-lift group flex flex-col rounded-2xl border border-slate-200/50 bg-white p-6"
               >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-slate-500 transition-all duration-300 group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:shadow-sm">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white transition-all duration-300 group-hover:bg-blue-700 group-hover:shadow-sm">
                   {item.icon}
                 </div>
                 <h3 className="text-sm font-bold leading-snug text-slate-900">
