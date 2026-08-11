@@ -558,7 +558,7 @@ function Home() {
               </div>
               <div className="flex items-center gap-5 text-xs font-bold">
                 <span className="inline-flex items-center gap-1.5 text-green-600">
-                  <span className="h-2 w-2 rounded-full bg-green-500"></span>24
+                  <span className="h-2 w-2 rounded-full bg-green-500"></span>6
                   Approved
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-amber-600">
