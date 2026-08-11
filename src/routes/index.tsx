@@ -297,6 +297,10 @@ function Home() {
               ClearToPay Construction
             </span>
           </a>
+          {/* Mobile: brand centered at the top (replaces the header free-trial CTA on phones) */}
+          <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-lg font-extrabold tracking-tight text-slate-900 sm:hidden">
+            ClearToPay Construction
+          </span>
           <div className="hidden gap-6 text-sm font-medium text-slate-700 lg:flex">
             <a
               href="#we-do-the-work"
@@ -350,7 +354,7 @@ function Home() {
             </a>
             <a
               href="/get-started"
-              className="btn-glow inline-flex items-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
+              className="btn-glow hidden sm:inline-flex items-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
             >
               Start Free Trial
             </a>

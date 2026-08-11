@@ -55,6 +55,10 @@ export function PageShell({ children }: { children: ReactNode }) {
       <nav className="relative sticky top-0 z-50 border-b border-slate-200/50 bg-white/85 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6">
           <Logo />
+          {/* Mobile: brand centered at the top (replaces the header free-trial CTA on phones) */}
+          <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-lg font-extrabold tracking-tight text-slate-900 sm:hidden">
+            ClearToPay Construction
+          </span>
           <div className="flex items-center gap-2 sm:gap-3">
             <a
               href="https://cleartopay-dev.ctonew.app/app/login"
@@ -64,7 +68,7 @@ export function PageShell({ children }: { children: ReactNode }) {
             </a>
             <a
               href="/get-started"
-              className="btn-glow inline-flex items-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
+              className="btn-glow hidden sm:inline-flex items-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
             >
               Start Free Trial
             </a>
