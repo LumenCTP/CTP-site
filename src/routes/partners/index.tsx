@@ -16,8 +16,7 @@ export const Route = createFileRoute("/partners/")({
   component: Partners,
 });
 
-const PARTNER_REGISTER_URL =
-  "https://cleartopay.ctonew.app/app/partner/register";
+const PARTNER_REGISTER_URL = "/app/partner/register";
 
 /* ── Small icon set (stroke = currentColor) ── */
 const IconShare = () => (

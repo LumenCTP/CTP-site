@@ -61,7 +61,7 @@ export function PageShell({ children }: { children: ReactNode }) {
           </span>
           <div className="flex items-center gap-2 sm:gap-3">
             <a
-              href="https://cleartopay-dev.ctonew.app/app/login"
+              href="/app/login"
               className="hidden items-center py-3 text-sm font-medium text-slate-600 transition-colors hover:text-blue-600 lg:inline-flex"
             >
               Sign In
@@ -78,7 +78,7 @@ export function PageShell({ children }: { children: ReactNode }) {
                 ...legalLinks,
                 {
                   label: "Sign In",
-                  href: "https://cleartopay-dev.ctonew.app/app/login",
+                  href: "/app/login",
                 },
               ]}
             >

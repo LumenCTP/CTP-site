@@ -112,8 +112,12 @@ function GetStarted() {
       return;
     }
 
-    // Registration creates a trial tenant. The app guard sends new users to setup.
-    window.location.href = "https://cleartopay.ctonew.app/app";
+    // Registration creates a trial tenant. Redirect to the app on the SAME host
+    // (relative path) so the token stored in localStorage above survives the
+    // navigation — the marketing site and the app share one origin
+    // (e.g. cleartopay.ctonew.app/get-started → cleartopay.ctonew.app/app). A
+    // hard-coded absolute URL would cross origins and drop the login token.
+    window.location.href = "/app";
   };
 
   return (
@@ -139,7 +143,7 @@ function GetStarted() {
           {/* Mobile: brand centered at the top */}
           <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-2xl font-extrabold tracking-tight text-white sm:hidden">ClearToPay Construction</span>
           <div className="flex items-center gap-4 sm:gap-6">
-            <a href="https://cleartopay-dev.ctonew.app/app/login" className="hidden items-center py-3 text-sm font-medium text-slate-400 transition-colors hover:text-white lg:inline-flex">
+            <a href="/app/login" className="hidden items-center py-3 text-sm font-medium text-slate-400 transition-colors hover:text-white lg:inline-flex">
               Sign In
             </a>
             <a href="/" className="hidden items-center py-3 text-sm font-medium text-slate-400 transition-colors hover:text-white md:inline-flex">
@@ -149,7 +153,7 @@ function GetStarted() {
               dark
               links={[
                 { label: "Back to Home", href: "/" },
-                { label: "Sign In", href: "https://cleartopay-dev.ctonew.app/app/login" },
+                { label: "Sign In", href: "/app/login" },
               ]}
             >
               <a
