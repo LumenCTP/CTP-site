@@ -64,7 +64,8 @@ function Checkout() {
         return;
       }
       // Redirect to Stripe's hosted checkout page (card, Apple Pay, Google Pay,
-      // PayPal — whichever the customer chooses there).
+      // Amazon Pay, Cash App Pay, Link — whichever Stripe shows for this
+      // customer's device and location).
       window.location.href = json.url;
     } catch {
       setError("Unable to reach the checkout server. Please try again.");
@@ -247,15 +248,39 @@ function Checkout() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5">
-                    <svg className="h-6 w-6 text-blue-800" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M20.06 12.44c-.05-2.4 1.96-3.55 2.05-3.6-1.12-1.63-2.85-1.86-3.47-1.88-1.48-.15-2.88.87-3.63.87-.75 0-1.9-.85-3.13-.83-1.61.03-3.1.94-3.92 2.38-1.67 2.9-.43 7.2 1.2 9.55.8 1.15 1.74 2.44 2.98 2.4 1.2-.05 1.65-.77 3.1-.77 1.44 0 1.85.78 3.11.75 1.29-.02 2.1-1.17 2.89-2.33.91-1.33 1.29-2.62 1.31-2.69-.03-.01-2.51-.96-2.54-3.82zM17.3 5.53c.66-.8 1.11-1.92.99-3.03-.96.04-2.12.64-2.81 1.44-.62.7-1.15 1.83-1.01 2.91 1.07.08 2.16-.55 2.83-1.32z"/>
+                    <svg className="h-6 w-6 text-amber-500" viewBox="0 0 24 24" fill="currentColor">
+                      <text x="12" y="16.5" textAnchor="middle" fontSize="14" fontWeight="700" fill="currentColor">a</text>
+                      <path d="M6.5 18.2c3.4 1.1 7.6 1 11-.6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                     </svg>
                     <div>
-                      <p className="text-sm font-bold text-slate-900">PayPal</p>
-                      <p className="text-xs text-slate-500">Pay with your PayPal balance or a linked bank</p>
+                      <p className="text-sm font-bold text-slate-900">Amazon Pay</p>
+                      <p className="text-xs text-slate-500">Pay with your Amazon account</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5">
+                    <svg className="h-6 w-6 text-emerald-600" viewBox="0 0 24 24" fill="currentColor">
+                      <rect x="3" y="4.5" width="18" height="15" rx="4" />
+                      <text x="12" y="16" textAnchor="middle" fontSize="13" fontWeight="700" fill="#fff">$</text>
+                    </svg>
+                    <div>
+                      <p className="text-sm font-bold text-slate-900">Cash App Pay</p>
+                      <p className="text-xs text-slate-500">Pay from your Cash App balance</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5">
+                    <svg className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg>
+                    <div>
+                      <p className="text-sm font-bold text-slate-900">Link</p>
+                      <p className="text-xs text-slate-500">Fast checkout with Stripe Link</p>
                     </div>
                   </div>
                 </div>
+                <p className="mt-3 text-xs text-slate-500">
+                  Stripe shows the payment methods available for your device and location.
+                </p>
 
                 {cancelled && (
                   <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
