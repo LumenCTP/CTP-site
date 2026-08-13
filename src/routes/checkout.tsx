@@ -8,20 +8,22 @@ export const Route = createFileRoute("/checkout")({
 
 type Plan = "monthly" | "annual";
 
-const PLAN_META: Record<Plan, { label: string; price: string; per: string; button: string; note: string }> = {
+const PLAN_META: Record<Plan, { label: string; price: string; per: string; button: string; note: string; dueToday: string }> = {
   monthly: {
     label: "Month-to-Month",
     price: "$149",
     per: "/month",
     button: "Pay now — $149/month",
-    note: "Billed monthly after your 30-day free trial. Cancel anytime.",
+    note: "Billed monthly. Cancel anytime.",
+    dueToday: "You'll be charged $149 today, then $149/mo.",
   },
   annual: {
     label: "Annual Plan",
     price: "$1,200",
     per: "/year",
     button: "Pay now — $1,200/year",
-    note: "Billed once per year after your 30-day free trial. That's $100/month — save $588 vs. monthly.",
+    note: "Billed once per year. That's $100/month — save $588 vs. monthly.",
+    dueToday: "You'll be charged $1,200 today for 12 months — save $588 vs. monthly.",
   },
 };
 
@@ -31,30 +33,60 @@ function Checkout() {
     const p = new URLSearchParams(window.location.search).get("plan");
     return p === "annual" ? "annual" : "monthly";
   });
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(() => {
+    if (typeof window === "undefined") return "";
+    // Prefill with the signed-in user's email (same-origin localStorage shared
+    // with the app) so ownership verification on return is reliable.
+    try {
+      const raw = localStorage.getItem("cleartopay_user");
+      if (raw) {
+        const u = JSON.parse(raw);
+        if (typeof u?.email === "string") return u.email;
+      }
+    } catch {
+      // ignore
+    }
+    return "";
+  });
+  const [registered, setRegistered] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [cancelled, setCancelled] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
 
   // SSR-safe: window is undefined during server render, so read query params
-  // (e.g. ?cancelled=1 after a Stripe cancel) inside an effect.
+  // (e.g. ?cancelled=1 after a Stripe cancel, ?registered=1 after signup)
+  // inside an effect.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const qs = new URLSearchParams(window.location.search);
     if (qs.get("cancelled") === "1") setCancelled(true);
+    if (qs.get("registered") === "1") setRegistered(true);
   }, []);
 
   const handlePay = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setCancelled(false);
+    setRegistered(false);
     setLoading(true);
     const emailValue = (emailRef.current?.value ?? "").trim();
+    // Attach the signed-in session (if any) so the API can tie the checkout
+    // session to the user's tenant (client_reference_id) for ownership
+    // verification in /api/checkout/confirm.
+    let token: string | null = null;
+    try {
+      token = localStorage.getItem("cleartopay_token");
+    } catch {
+      token = null;
+    }
     try {
       const res = await fetch("/api/checkout/session", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify({ plan: selectedPlan, ...(emailValue ? { email: emailValue } : {}) }),
       });
       const json = await res.json().catch(() => ({}));
@@ -62,6 +94,13 @@ function Checkout() {
         setError(json.error || "Checkout could not be started. Please try again.");
         setLoading(false);
         return;
+      }
+      // Stash the session id so the app's confirm step works after the Stripe
+      // redirect even if the ?session_id= query param gets stripped.
+      try {
+        localStorage.setItem("cleartopay_checkout_session", json.session_id);
+      } catch {
+        // localStorage unavailable — the URL ?session_id= param still works.
       }
       // Redirect to Stripe's hosted checkout page (card, Apple Pay, Google Pay,
       // Amazon Pay, Cash App Pay, Link — whichever Stripe shows for this
@@ -104,7 +143,7 @@ function Checkout() {
               dark
               links={[
                 { label: "Back to Home", href: "/" },
-                { label: "Start Free Trial", href: "/get-started" },
+                { label: "Get Started", href: "/get-started" },
                 { label: "Sign In", href: "/app/login" },
               ]}
             >
@@ -112,7 +151,7 @@ function Checkout() {
                 href="/get-started"
                 className="btn-glow mt-2 flex min-h-12 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-base font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
               >
-                Start Free Trial
+                Get Started
               </a>
             </MobileNav>
           </div>
@@ -135,8 +174,8 @@ function Checkout() {
             Secure Checkout
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-slate-300">
-            Pick your plan and pay securely with Stripe. Your first month is free —
-            you won't be charged until your free trial ends.
+            Pick your plan and pay securely with Stripe. Your account activates
+            immediately — no free trial, and you can cancel anytime.
           </p>
         </div>
       </section>
@@ -174,8 +213,8 @@ function Checkout() {
                     <span className="text-3xl font-extrabold text-slate-900">$149</span>
                     <span className="text-slate-400 font-medium">/month</span>
                   </div>
-                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">First Month Free</p>
-                  <p className="mt-2 text-sm text-slate-500">Billed automatically each month after your free trial. Cancel anytime.</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">$149/mo</p>
+                  <p className="mt-2 text-sm text-slate-500">Billed automatically each month. Cancel anytime.</p>
                 </button>
 
                 {/* Annual Plan */}
@@ -201,7 +240,7 @@ function Checkout() {
                     <span className="text-3xl font-extrabold text-slate-900">$1,200</span>
                     <span className="text-slate-400 font-medium">/year</span>
                   </div>
-                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">First Month Free</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">$1,200/yr</p>
                   <p className="mt-2 text-sm text-slate-500">That's $100/month, billed once a year. Save $588 vs. monthly.</p>
                 </button>
               </div>
@@ -282,6 +321,14 @@ function Checkout() {
                   Stripe shows the payment methods available for your device and location.
                 </p>
 
+                {registered && (
+                  <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+                    Account created — choose your plan to activate. You'll be
+                    charged now (no free trial), and your account unlocks right
+                    away.
+                  </div>
+                )}
+
                 {cancelled && (
                   <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
                     Checkout cancelled. No payment was taken — you can try again whenever
@@ -319,16 +366,13 @@ function Checkout() {
                       <span className="text-sm font-bold text-slate-900">{PLAN_META[selectedPlan].price}{PLAN_META[selectedPlan].per}</span>
                     </div>
                     <div className="mt-2 flex items-center justify-between">
-                      <span className="text-sm text-slate-600">First month</span>
-                      <span className="text-sm font-bold text-blue-600">Free</span>
-                    </div>
-                    <div className="mt-2 flex items-center justify-between">
-                      <span className="text-sm text-slate-600">First charge</span>
-                      <span className="text-sm text-slate-500">{selectedPlan === "annual" ? "After 30-day trial ($1,200)" : "After 30-day trial ($149)"}</span>
+                      <span className="text-sm text-slate-600">Due today</span>
+                      <span className="text-sm font-bold text-blue-600">{selectedPlan === "annual" ? "$1,200" : "$149"}</span>
                     </div>
                     <p className="mt-4 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
-                      {PLAN_META[selectedPlan].note} You can cancel anytime before the
-                      trial ends and never be charged.
+                      {PLAN_META[selectedPlan].dueToday} Cancel anytime. A card is
+                      required — it's how you pay, and your account activates
+                      immediately after checkout.
                     </p>
                   </div>
 
@@ -372,8 +416,8 @@ function Checkout() {
             <div className="flex items-center gap-6">
               <a href="/privacy" className="text-sm text-slate-500 transition-colors hover:text-blue-600">Privacy Policy</a>
               <a href="/terms" className="text-sm text-slate-500 transition-colors hover:text-blue-600">Terms of Service</a>
-              <a href="/get-started" className="text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700">
-                Prefer the free trial? Start here →
+              <a href="mailto:support@cleartopay.com" className="text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700">
+                Questions? support@cleartopay.com
               </a>
             </div>
           </div>

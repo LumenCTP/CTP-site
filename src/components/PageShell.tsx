@@ -55,7 +55,7 @@ export function PageShell({ children }: { children: ReactNode }) {
       <nav className="relative sticky top-0 z-50 border-b border-slate-200/50 bg-white/85 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6">
           <Logo />
-          {/* Mobile: brand centered at the top (replaces the header free-trial CTA on phones) */}
+          {/* Mobile: brand centered at the top (replaces the header CTA on phones) */}
           <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-2xl font-extrabold tracking-tight text-blue-600 sm:hidden">
             ClearToPay Construction
           </span>
@@ -70,7 +70,7 @@ export function PageShell({ children }: { children: ReactNode }) {
               href="/get-started"
               className="btn-glow hidden sm:inline-flex items-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
             >
-              Start Free Trial
+              Get Protected
             </a>
             <MobileNav
               links={[
@@ -86,7 +86,7 @@ export function PageShell({ children }: { children: ReactNode }) {
                 href="/get-started"
                 className="btn-glow mt-2 flex min-h-12 items-center justify-center rounded-xl bg-white px-4 py-3 text-base font-semibold text-blue-600 shadow-md shadow-blue-900/25 transition-all hover:bg-blue-50"
               >
-                Start Free Trial
+                Get Protected
               </a>
             </MobileNav>
           </div>
@@ -142,7 +142,7 @@ export function PageShell({ children }: { children: ReactNode }) {
             </div>
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-                Start Free Trial
+                Get Protected
               </h4>
               <p className="mt-5 text-sm leading-relaxed text-slate-500">
                 Stop chasing compliance documents. Start building.
@@ -151,7 +151,7 @@ export function PageShell({ children }: { children: ReactNode }) {
                 href="/get-started"
                 className="mt-5 inline-flex rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg"
               >
-                Start Free Trial
+                Get Protected
               </a>
             </div>
           </div>

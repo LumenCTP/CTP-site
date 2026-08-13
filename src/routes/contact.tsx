@@ -146,9 +146,9 @@ function Contact() {
                 href="/get-started"
                 className="font-semibold text-blue-600 hover:underline"
               >
-                Start your free trial
+                Get Protected
               </a>{" "}
-              — your first month is free, set up takes about an hour, and you
+              — $149/mo, set up takes about an hour, and you
               can cancel anytime.
             </p>
           </ContactCard>
@@ -168,7 +168,7 @@ function Contact() {
             href="/get-started"
             className="btn-glow mt-7 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
           >
-            Start Free Trial
+            Get Protected
             <span aria-hidden="true" className="text-base leading-none">
               &rarr;
             </span>

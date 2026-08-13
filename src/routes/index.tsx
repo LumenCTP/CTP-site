@@ -201,7 +201,7 @@ const pricingFeatures = [
 
 /* ── Inline conversion CTA (clean, centered — not a full section) ── */
 function InlineCTA({
-  note = "First month free · Set up in about an hour · Cancel anytime",
+  note = "$149/mo · Set up in about an hour · Cancel anytime",
 }: {
   note?: string;
 }) {
@@ -211,7 +211,7 @@ function InlineCTA({
         href="/get-started"
         className="btn-glow inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-4 text-base font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-2xl hover:shadow-blue-600/40"
       >
-        Start Free Trial
+        Get Protected
         <span aria-hidden="true" className="text-lg leading-none">
           &rarr;
         </span>
@@ -297,7 +297,7 @@ function Home() {
               ClearToPay Construction
             </span>
           </a>
-          {/* Mobile: brand centered at the top (replaces the header free-trial CTA on phones) */}
+          {/* Mobile: brand centered at the top (replaces the header CTA on phones) */}
           <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-2xl font-extrabold tracking-tight text-blue-600 sm:hidden">
             ClearToPay Construction
           </span>
@@ -356,7 +356,7 @@ function Home() {
               href="/get-started"
               className="btn-glow hidden sm:inline-flex items-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30"
             >
-              Start Free Trial
+              Get Protected
             </a>
             <MobileNav
               links={[
@@ -377,7 +377,7 @@ function Home() {
                 href="/get-started"
                 className="btn-glow mt-2 flex min-h-12 items-center justify-center rounded-xl bg-white px-4 py-3 text-base font-semibold text-blue-600 shadow-md shadow-blue-900/25 transition-all hover:bg-blue-50"
               >
-                Start Free Trial
+                Get Protected
               </a>
             </MobileNav>
           </div>
@@ -429,7 +429,7 @@ function Home() {
                 href="/get-started"
                 className="btn-glow w-full rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-2xl hover:shadow-blue-600/40 sm:w-auto"
               >
-                Start Free Trial
+                Get Protected
               </a>
               <a
                 href="#how-it-works"
@@ -910,7 +910,7 @@ function Home() {
       </section>
 
       {/* Inline CTA — after Audit */}
-      <InlineCTA note="When the auditor calls, you'll already be done. Start your free trial." />
+      <InlineCTA note="When the auditor calls, you'll already be done. Get Protected today." />
 
       {/* ═══════════ Document Types ═══════════ */}
       <section className="py-14 sm:py-18">
@@ -1027,9 +1027,9 @@ function Home() {
               </div>
               <div className="mt-6 space-y-1.5">
                 <p className="inline-flex rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold text-blue-700">
-                  First Month Free
+                  $149/mo
                 </p>
-                <p className="text-sm text-slate-500">Billed automatically each month after your free trial. Cancel anytime.</p>
+                <p className="text-sm text-slate-500">Billed automatically each month. Cancel anytime.</p>
               </div>
               <ul className="mt-8 flex-1 space-y-3.5 text-sm text-slate-600">
                 {pricingFeatures.map((f) => (
@@ -1043,7 +1043,7 @@ function Home() {
                 href="/get-started"
                 className="mt-10 inline-flex justify-center rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:border-blue-300 hover:text-blue-600"
               >
-                Start Your Free Month
+                Get Protected
               </a>
               <p className="mt-4 text-center text-sm text-slate-500">
                 Prefer to pay now?{" "}
@@ -1071,10 +1071,10 @@ function Home() {
               </div>
               <div className="mt-6 space-y-1.5">
                 <p className="inline-flex rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white">
-                  First Month Free
+                  $1,200/yr
                 </p>
                 <p className="text-sm font-bold text-blue-600">
-                  That's $100/month, billed once a year after your free trial. Save $588 vs. monthly.
+                  That's $100/month, billed once a year. Save $588 vs. monthly.
                 </p>
               </div>
               <ul className="mt-8 flex-1 space-y-3.5 text-sm text-slate-600">
@@ -1089,7 +1089,7 @@ function Home() {
                 href="/get-started"
                 className="btn-glow mt-10 inline-flex justify-center rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
               >
-                Start Your Free Month
+                Get Protected
               </a>
               <p className="mt-4 text-center text-sm text-slate-500">
                 Prefer to pay now?{" "}
@@ -1144,10 +1144,10 @@ function Home() {
               href="/get-started"
               className="btn-glow inline-flex rounded-2xl bg-blue-600 px-14 py-5 text-xl font-bold text-white shadow-2xl shadow-blue-600/30 transition-all hover:bg-blue-500 hover:shadow-blue-600/40 hover:scale-[1.03]"
             >
-              Start Your Free Month
+              Get Protected
             </a>
             <p className="text-sm text-slate-400/80">
-              First month free. Set up in under an hour. Cancel anytime.
+              $149/mo. Set up in under an hour. Cancel anytime.
             </p>
           </div>
         </div>
@@ -1301,7 +1301,7 @@ function Home() {
             </div>
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-                Start Free Trial
+                Get Protected
               </h4>
               <p className="mt-5 text-sm leading-relaxed text-slate-500">
                 Stop chasing compliance documents. Start building.
@@ -1310,7 +1310,7 @@ function Home() {
                 href="/get-started"
                 className="mt-5 inline-flex rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg"
               >
-                Start Free Trial
+                Get Protected
               </a>
             </div>
           </div>
