@@ -1045,6 +1045,12 @@ function Home() {
               >
                 Start Your Free Month
               </a>
+              <p className="mt-4 text-center text-sm text-slate-500">
+                Prefer to pay now?{" "}
+                <a href="/checkout?plan=monthly" className="font-semibold text-blue-600 underline-offset-2 hover:underline">
+                  Go to checkout →
+                </a>
+              </p>
             </div>
 
             {/* Annual Plan */}
@@ -1085,6 +1091,12 @@ function Home() {
               >
                 Start Your Free Month
               </a>
+              <p className="mt-4 text-center text-sm text-slate-500">
+                Prefer to pay now?{" "}
+                <a href="/checkout?plan=annual" className="font-semibold text-blue-600 underline-offset-2 hover:underline">
+                  Go to checkout →
+                </a>
+              </p>
             </div>
           </div>
 

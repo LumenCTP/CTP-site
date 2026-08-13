@@ -16,6 +16,23 @@ mkdir -p .run
 # once node_modules is current.
 bun install
 bun run build
+# Bundle the admin SPA (web/dist) into dist/app so serve.ts can serve /app/*
+# from a path that exists on both dev and live machines (no sibling repo
+# required). Idempotent: rm -rf then cp -r. Only web/dist contents are copied.
+if [ -f ../clear-to-pay/web/dist/index.html ]; then
+  rm -rf dist/app
+  cp -R ../clear-to-pay/web/dist dist/app
+  echo "admin SPA bundled into dist/app"
+else
+  # No local web build (e.g. publish running outside the sandbox tree). Keep any
+  # dist/app that was shipped with this copy rather than wiping it.
+  if [ -f dist/app/index.html ]; then
+    echo "warning: ../clear-to-pay/web/dist not found — keeping existing dist/app" >&2
+  else
+    echo "error: ../clear-to-pay/web/dist not found and no dist/app present — /app/* will not work" >&2
+    exit 1
+  fi
+fi
 setsid nohup bun run start > .run/server.log 2>&1 < /dev/null &
 
 # Wait for the new server to actually answer before reporting success, so a

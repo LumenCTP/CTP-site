@@ -428,6 +428,16 @@ function GetStarted() {
                   <p className="text-center text-xs text-slate-400">
                     You'll be redirected to set up your account. No payment is required during your free trial.
                   </p>
+
+                  <p className="text-center text-sm text-slate-500">
+                    Prefer to pay now?{" "}
+                    <a
+                      href={`/checkout${selectedPlan === "annual" ? "?plan=annual" : ""}`}
+                      className="font-semibold text-blue-600 underline-offset-2 hover:underline"
+                    >
+                      Go to checkout →
+                    </a>
+                  </p>
                 </form>
               </div>
             </div>

@@ -3,6 +3,16 @@
 // this wraps them in a Bun server on port 3000 — static files first, SSR for the
 // rest. Run `bun run build` before starting. Restart it with `bun run publish`.
 //
+// In addition to the marketing site, this server hosts:
+//   - /app/*          → the admin SPA (built web/dist, bundled into dist/app by
+//                       publish.sh), with SPA-routing fallback to index.html.
+//   - /api/*          → proxied to the admin API. Primary upstream is the local
+//                       API on :3001 (dev sandbox); when that is unreachable or
+//                       errors 5xx (e.g. on the live machine where no API
+//                       process exists), it retries once against the dev API
+//                       (https://cleartopay-dev.ctonew.app) so /api/* works on
+//                       the live domain too.
+//
 // Starting a new instance supersedes the old one: it frees the port no matter
 // which user owns the current server (provisioning starts it as `engine`; a team
 // member's `bun run publish` runs as their own user), so publish never collides
@@ -29,32 +39,40 @@ const freePort =
   `kill $pids 2>/dev/null || true; sleep 0.2; ` +
   `done`;
 
-// Upstream targets
-const ADMIN_API = "http://localhost:3001";
-const ADMIN_WEB_DIR = `${import.meta.dir}/../clear-to-pay/web/dist`;
+// Admin SPA bundle — publish.sh copies web/dist → dist/app, so this path exists
+// on BOTH the dev sandbox and the live machine (no sibling repo required).
+const ADMIN_WEB_DIR = `${import.meta.dir}/dist/app`;
+
+// Upstream targets. The local API (:3001) is the primary; on the live machine it
+// does not exist, so /api/* falls back to the dev API.
+const ADMIN_API = process.env.CTP_API_UPSTREAM || "http://localhost:3001";
+const DEV_API = "https://cleartopay-dev.ctonew.app";
 
 /**
  * Proxy an incoming request to an upstream origin, forwarding method, headers, and
- * body. Returns the upstream response with hop-by-hop headers stripped.
+ * body. The body must be read ONCE by the caller (an ArrayBuffer) so a failed
+ * attempt can be retried against the fallback upstream with the same body.
+ * `extraHeaders` are added to the proxied request (used to mark a fallback retry
+ * so the receiving server never falls back again — otherwise a 5xx from the local
+ * API would re-enter this same server via its public URL and loop forever).
+ * Returns the upstream response with hop-by-hop headers stripped.
  */
-async function proxyTo(req: Request, origin: string, rewritePath?: (pathname: string) => string): Promise<Response> {
+async function proxyTo(req: Request, origin: string, body?: ArrayBuffer, extraHeaders?: Record<string, string>): Promise<Response> {
   const url = new URL(req.url);
-  let targetPath = url.pathname;
-  if (rewritePath) targetPath = rewritePath(targetPath);
-
-  const targetUrl = `${origin}${targetPath}${url.search}`;
+  const targetUrl = `${origin}${url.pathname}${url.search}`;
 
   // Forward headers, rewriting Host for the upstream
   const headers = new Headers(req.headers);
   headers.set("host", new URL(origin).host);
   headers.delete("connection");
+  if (extraHeaders) {
+    for (const [k, v] of Object.entries(extraHeaders)) headers.set(k, v);
+  }
 
   const proxyReq = new Request(targetUrl, {
     method: req.method,
     headers,
-    body: req.method !== "GET" && req.method !== "HEAD"
-      ? await req.arrayBuffer()
-      : undefined,
+    body: body ?? undefined,
   });
 
   const res = await fetch(proxyReq);
@@ -87,20 +105,61 @@ for (let attempt = 1; ; attempt++) {
         const url = new URL(req.url);
         const { pathname } = url;
 
-        // ── Proxy /api/* → admin API (port 3001) ──
+        // ── Proxy /api/* → admin API, with dev-API fallback ──
         if (pathname.startsWith("/api")) {
-          return proxyTo(req, ADMIN_API);
+          // Read the body once up-front so a retry can reuse it (a Request body
+          // can only be consumed once).
+          const body = req.method !== "GET" && req.method !== "HEAD"
+            ? await req.arrayBuffer()
+            : undefined;
+
+          // Never fall back if we ARE the fallback already: either this request
+          // already carries our fallback marker (edge forwarded it), or it arrived
+          // via the dev domain (host/x-forwarded-host). Without this guard a 5xx
+          // from the local API would re-enter this same server through its public
+          // URL and loop: request → local API 5xx → retry dev URL → edge → this
+          // server → local API 5xx → retry dev URL → …
+          const alreadyFellBack = req.headers.get("x-ctp-api-fallback") === "1";
+          const viaDevHost = (req.headers.get("x-forwarded-host") ?? req.headers.get("host") ?? "")
+            .toLowerCase().includes("cleartopay-dev");
+          const canFallback = !alreadyFellBack && !viaDevHost;
+
+          const retry = () => proxyTo(req, DEV_API, body, { "x-ctp-api-fallback": "1" });
+          const jsonError = (status: number, message: string) =>
+            new Response(JSON.stringify({ error: message }), {
+              status,
+              headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+            });
+
+          try {
+            const res = await proxyTo(req, ADMIN_API, body);
+            if (canFallback && (res.status === 500 || res.status === 502 || res.status === 503 || res.status === 504)) {
+              console.warn(`[serve] upstream ${ADMIN_API} returned ${res.status} for ${pathname} — retrying against ${DEV_API}`);
+              try {
+                return await retry();
+              } catch (retryErr) {
+                console.warn(`[serve] fallback ${DEV_API} also failed for ${pathname}: ${String(retryErr)}`);
+                return jsonError(502, "API unavailable");
+              }
+            }
+            return res;
+          } catch (err) {
+            if (canFallback) {
+              console.warn(`[serve] upstream ${ADMIN_API} failed for ${pathname} — retrying against ${DEV_API}: ${String(err)}`);
+              try {
+                return await retry();
+              } catch (retryErr) {
+                console.warn(`[serve] fallback ${DEV_API} also failed for ${pathname}: ${String(retryErr)}`);
+                return jsonError(502, "API unavailable");
+              }
+            }
+            return jsonError(502, "API unavailable");
+          }
         }
 
-        // ── Admin SPA (production build) → serve /app/* and /assets/* ──
-        if (pathname.startsWith("/app") || pathname.startsWith("/assets")) {
-          let filePath: string;
-          if (pathname.startsWith("/assets")) {
-            filePath = ADMIN_WEB_DIR + pathname;
-          } else {
-            // SPA: all /app/* routes serve index.html (client-side routing)
-            filePath = ADMIN_WEB_DIR + "/index.html";
-          }
+        // ── Admin SPA (production build): /app/* serves dist/app ──
+        if (pathname.startsWith("/app")) {
+          let filePath = ADMIN_WEB_DIR + pathname;
           const file = Bun.file(filePath);
           if (await file.exists()) {
             return new Response(file, {
@@ -108,10 +167,10 @@ for (let attempt = 1; ; attempt++) {
                        filePath.endsWith(".js") ? { "Content-Type": "application/javascript" } : {},
             });
           }
-          // Fallback to index.html for SPA routing
-          if (pathname.startsWith("/app")) {
-            return new Response(Bun.file(ADMIN_WEB_DIR + "/index.html"));
-          }
+          // Fallback to index.html for SPA routing (/app/login, /app/documents, …)
+          return new Response(Bun.file(ADMIN_WEB_DIR + "/index.html"), {
+            headers: { "Content-Type": "text/html" },
+          });
         }
 
         // ── Marketing site: static files first, then SSR ──
