@@ -8,22 +8,22 @@ export const Route = createFileRoute("/checkout")({
 
 type Plan = "monthly" | "annual";
 
-const PLAN_META: Record<Plan, { label: string; price: string; per: string; button: string; note: string; dueToday: string }> = {
+const PLAN_META: Record<Plan, { label: string; price: string; per: string; button: string; note: string; firstCharge: string }> = {
   monthly: {
     label: "Month-to-Month",
     price: "$149",
     per: "/month",
-    button: "Pay now — $149/month",
-    note: "Billed monthly. Cancel anytime.",
-    dueToday: "You'll be charged $149 today, then $149/mo.",
+    button: "Start free trial — $149/month",
+    note: "Billed monthly after your 30-day free trial. Cancel anytime.",
+    firstCharge: "After 30-day trial ($149)",
   },
   annual: {
     label: "Annual Plan",
     price: "$1,200",
     per: "/year",
-    button: "Pay now — $1,200/year",
-    note: "Billed once per year. That's $100/month — save $588 vs. monthly.",
-    dueToday: "You'll be charged $1,200 today for 12 months — save $588 vs. monthly.",
+    button: "Start free trial — $1,200/year",
+    note: "Billed once per year after your 30-day free trial. That's $100/month — save $588 vs. monthly.",
+    firstCharge: "After 30-day trial ($1,200)",
   },
 };
 
@@ -174,8 +174,9 @@ function Checkout() {
             Secure Checkout
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-slate-300">
-            Pick your plan and pay securely with Stripe. Your account activates
-            immediately — no free trial, and you can cancel anytime.
+            Start your 30-day free trial — pick your plan and enter your card at
+            checkout. Your card is kept on file but you won't be charged until
+            your trial ends.
           </p>
         </div>
       </section>
@@ -213,8 +214,8 @@ function Checkout() {
                     <span className="text-3xl font-extrabold text-slate-900">$149</span>
                     <span className="text-slate-400 font-medium">/month</span>
                   </div>
-                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">$149/mo</p>
-                  <p className="mt-2 text-sm text-slate-500">Billed automatically each month. Cancel anytime.</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">First Month Free</p>
+                  <p className="mt-2 text-sm text-slate-500">Billed automatically each month after your free trial. Cancel anytime.</p>
                 </button>
 
                 {/* Annual Plan */}
@@ -240,8 +241,8 @@ function Checkout() {
                     <span className="text-3xl font-extrabold text-slate-900">$1,200</span>
                     <span className="text-slate-400 font-medium">/year</span>
                   </div>
-                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">$1,200/yr</p>
-                  <p className="mt-2 text-sm text-slate-500">That's $100/month, billed once a year. Save $588 vs. monthly.</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">First Month Free</p>
+                  <p className="mt-2 text-sm text-slate-500">That's $100/month, billed once a year after your free trial. Save $588 vs. monthly.</p>
                 </button>
               </div>
             </div>
@@ -323,9 +324,9 @@ function Checkout() {
 
                 {registered && (
                   <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
-                    Account created — choose your plan to activate. You'll be
-                    charged now (no free trial), and your account unlocks right
-                    away.
+                    Account created — choose your plan to start your 30-day free
+                    trial. Your card is entered at checkout but you won't be
+                    charged until your trial ends.
                   </div>
                 )}
 
@@ -366,13 +367,17 @@ function Checkout() {
                       <span className="text-sm font-bold text-slate-900">{PLAN_META[selectedPlan].price}{PLAN_META[selectedPlan].per}</span>
                     </div>
                     <div className="mt-2 flex items-center justify-between">
-                      <span className="text-sm text-slate-600">Due today</span>
-                      <span className="text-sm font-bold text-blue-600">{selectedPlan === "annual" ? "$1,200" : "$149"}</span>
+                      <span className="text-sm text-slate-600">First month</span>
+                      <span className="text-sm font-bold text-blue-600">Free</span>
+                    </div>
+                    <div className="mt-2 flex items-center justify-between">
+                      <span className="text-sm text-slate-600">First charge</span>
+                      <span className="text-sm text-slate-500">{PLAN_META[selectedPlan].firstCharge}</span>
                     </div>
                     <p className="mt-4 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
-                      {PLAN_META[selectedPlan].dueToday} Cancel anytime. A card is
-                      required — it's how you pay, and your account activates
-                      immediately after checkout.
+                      {PLAN_META[selectedPlan].note} A card is required at checkout —
+                      it stays on file and is only charged when your trial ends. Cancel
+                      anytime before the trial ends and you'll never be charged.
                     </p>
                   </div>
 

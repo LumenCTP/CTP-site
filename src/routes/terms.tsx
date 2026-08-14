@@ -88,7 +88,7 @@ function TermsOfService() {
         <LegalSection title="Payment Terms">
           <p>
             The Service is offered on a month-to-month or annual subscription
-            basis. Your subscription is billed monthly or annually and starts on the day you pay.
+            basis. Your first month of service is free. After your free month,
             you will be billed at the plan rate you selected — either monthly or
             annually — until you cancel. Prices are displayed on our pricing
             page and may be updated from time to time; any price change will be
@@ -108,7 +108,7 @@ function TermsOfService() {
             effect at the end of your current billing period, and you will not
             be charged for any period after your cancellation date. You will
             retain access to the Service until the end of the paid period. If
-            you cancel, you will not be charged for the next billing period.
+            you cancel during your free month, you will not be charged.
           </p>
           <p>
             We may suspend or terminate access to the Service if you violate

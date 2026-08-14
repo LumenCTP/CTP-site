@@ -148,7 +148,7 @@ function Contact() {
               >
                 Get Protected
               </a>{" "}
-              — $149/mo, set up takes about an hour, and you
+              — your first month is free, set up takes about an hour, and you
               can cancel anytime.
             </p>
           </ContactCard>

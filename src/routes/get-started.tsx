@@ -118,7 +118,7 @@ function GetStarted() {
     // navigation — the marketing site and the app share one origin
     // (e.g. cleartopay.ctonew.app/get-started → cleartopay.ctonew.app/app). A
     // hard-coded absolute URL would cross origins and drop the login token.
-    // The customer pays NOW (no trial) and the account activates immediately.
+    // Checkout starts the 30-day free trial (card on file, no charge yet).
     window.location.href = `/checkout?plan=${selectedPlan}&registered=1`;
   };
 
@@ -225,8 +225,8 @@ function GetStarted() {
                     <span className="text-3xl font-extrabold text-slate-900">$149</span>
                     <span className="text-slate-400 font-medium">/month</span>
                   </div>
-                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">$149/mo</p>
-                  <p className="mt-2 text-sm text-slate-500">Billed automatically each month. Cancel anytime.</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">First Month Free</p>
+                  <p className="mt-2 text-sm text-slate-500">Billed automatically each month after your free trial. Cancel anytime.</p>
                   <ul className="mt-5 space-y-2.5 text-sm text-slate-600">
                     {["Clear-to-Pay reports every Monday", "Unlimited vendor tracking", "Audit packages on demand", "AI document processing", "Email support"].map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
@@ -265,13 +265,13 @@ function GetStarted() {
                     <span className="text-3xl font-extrabold text-slate-900">$1,200</span>
                     <span className="text-slate-400 font-medium">/year</span>
                   </div>
-                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">$1,200/yr</p>
-                  <p className="mt-2 text-sm text-slate-500">That's $100/month, billed once a year. Save $588 vs. monthly.</p>
+                  <p className="mt-1 inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">First Month Free</p>
+                  <p className="mt-2 text-sm text-slate-500">That's $100/month, billed once a year after your free trial ends. Save $588 vs. monthly.</p>
                   <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
                     <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
-                    Save $588/yr
+                    No payment today
                   </div>
                   <ul className="mt-5 space-y-2.5 text-sm text-slate-600">
                     {["Everything in Monthly", "Priority support", "Unlimited vendors"].map((item) => (
@@ -393,14 +393,16 @@ function GetStarted() {
                         {selectedPlan === "annual" ? "Billed once per year" : "Billed monthly"}
                       </span>
                       <span className="text-sm text-slate-500">
-                        {selectedPlan === "annual" ? "due today" : "due today"}
+                        {selectedPlan === "annual" ? "after free trial" : "after free trial"}
                       </span>
+                    </div>
+                    <div className="mt-2 flex items-center justify-between">
+                      <span className="text-sm text-blue-600 font-medium">Your first month</span>
+                      <span className="text-sm font-bold text-blue-600">Free</span>
                     </div>
                     <div className="mt-4 border-t border-slate-200 pt-4 flex items-center justify-between">
                       <span className="text-sm font-bold text-slate-900">Due today</span>
-                      <span className="text-2xl font-extrabold text-green-600">
-                        {selectedPlan === "annual" ? "$1,200" : "$149"}
-                      </span>
+                      <span className="text-2xl font-extrabold text-green-600">$0</span>
                     </div>
                   </div>
 
@@ -412,7 +414,7 @@ function GetStarted() {
                       <a href="/terms" target="_blank" className="text-blue-600 underline hover:text-blue-700">Terms of Service</a>
                       {" "}and{" "}
                       <a href="/privacy" target="_blank" className="text-blue-600 underline hover:text-blue-700">Privacy Policy</a>.
-                      {selectedPlan === "annual" ? " I understand I will be charged $1,200 once per year." : " I understand I will be charged $149 each month."}
+                      {selectedPlan === "annual" ? " I understand I will be charged $1,200 once per year after my 30-day free trial." : " I understand I will be charged $149 each month after my 30-day free trial."}
                     </span>
                   </label>
 
@@ -426,8 +428,9 @@ function GetStarted() {
                   </button>
 
                   <p className="text-center text-xs text-slate-400">
-                    You'll pay securely with Stripe right after creating your
-                    account — no free trial. Your account activates immediately.
+                    You'll be redirected to start your 30-day free trial. Your card
+                    is entered at checkout but you won't be charged until your trial
+                    ends — no payment is required today.
                   </p>
 
                   <p className="text-center text-sm text-slate-500">

@@ -201,7 +201,7 @@ const pricingFeatures = [
 
 /* ── Inline conversion CTA (clean, centered — not a full section) ── */
 function InlineCTA({
-  note = "$149/mo · Set up in about an hour · Cancel anytime",
+  note = "First month free · Set up in about an hour · Cancel anytime",
 }: {
   note?: string;
 }) {
@@ -910,7 +910,7 @@ function Home() {
       </section>
 
       {/* Inline CTA — after Audit */}
-      <InlineCTA note="When the auditor calls, you'll already be done. Get Protected today." />
+      <InlineCTA note="When the auditor calls, you'll already be done. Start your 30-day free trial." />
 
       {/* ═══════════ Document Types ═══════════ */}
       <section className="py-14 sm:py-18">
@@ -1027,9 +1027,9 @@ function Home() {
               </div>
               <div className="mt-6 space-y-1.5">
                 <p className="inline-flex rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold text-blue-700">
-                  $149/mo
+                  First Month Free
                 </p>
-                <p className="text-sm text-slate-500">Billed automatically each month. Cancel anytime.</p>
+                <p className="text-sm text-slate-500">Billed automatically each month after your free trial. Cancel anytime.</p>
               </div>
               <ul className="mt-8 flex-1 space-y-3.5 text-sm text-slate-600">
                 {pricingFeatures.map((f) => (
@@ -1046,7 +1046,7 @@ function Home() {
                 Get Protected
               </a>
               <p className="mt-4 text-center text-sm text-slate-500">
-                Prefer to pay now?{" "}
+                Start your 30-day free trial{" "}
                 <a href="/checkout?plan=monthly" className="font-semibold text-blue-600 underline-offset-2 hover:underline">
                   Go to checkout →
                 </a>
@@ -1071,10 +1071,10 @@ function Home() {
               </div>
               <div className="mt-6 space-y-1.5">
                 <p className="inline-flex rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white">
-                  $1,200/yr
+                  First Month Free
                 </p>
                 <p className="text-sm font-bold text-blue-600">
-                  That's $100/month, billed once a year. Save $588 vs. monthly.
+                  That's $100/month, billed once a year after your free trial ends. Save $588 vs. monthly.
                 </p>
               </div>
               <ul className="mt-8 flex-1 space-y-3.5 text-sm text-slate-600">
@@ -1092,7 +1092,7 @@ function Home() {
                 Get Protected
               </a>
               <p className="mt-4 text-center text-sm text-slate-500">
-                Prefer to pay now?{" "}
+                Start your 30-day free trial{" "}
                 <a href="/checkout?plan=annual" className="font-semibold text-blue-600 underline-offset-2 hover:underline">
                   Go to checkout →
                 </a>
@@ -1147,7 +1147,7 @@ function Home() {
               Get Protected
             </a>
             <p className="text-sm text-slate-400/80">
-              $149/mo. Set up in under an hour. Cancel anytime.
+              First month free. Set up in under an hour. Cancel anytime.
             </p>
           </div>
         </div>
