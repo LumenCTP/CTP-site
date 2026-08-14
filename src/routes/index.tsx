@@ -468,13 +468,13 @@ function Home() {
             {[
               {
                 icon: <IconBell />,
-                title: "We Contact Your Vendors Directly",
-                desc: "We reach out to every vendor and their insurance agent to request the documents you need — so you never have to play phone tag.",
+                title: "Automated Renewal Reminders",
+                desc: "When a document is close to expiring, the system automatically emails its sender a renewal reminder — at 30, 15, and 7 days before expiration and again on the expiration date. No phone tag required.",
               },
               {
                 icon: <IconDoc />,
-                title: "We Request Missing Documents",
-                desc: "Missing COI? W-9? Insurance certificate? We ask for it on your behalf, professionally and persistently, until it arrives.",
+                title: "Missing Documents, Flagged",
+                desc: "Missing COI? W-9? Insurance certificate? The system tracks every required document and flags what's missing in your weekly Clear-to-Pay Report — so you know exactly what to request and from whom.",
               },
               {
                 icon: <IconClipboard />,
@@ -755,8 +755,8 @@ function Home() {
               {
                 step: "02",
                 title: "We collect and monitor documents",
-                desc: "We reach out to every vendor and insurance agent to gather COIs, W-9s, workers' comp, and everything else required.",
-                detail: "Vendors hear from us — not from you.",
+                desc: "Vendors and agents email COIs, W-9s, workers' comp, and everything else required to your dedicated compliance inbox — the system processes each document and tracks it automatically.",
+                detail: "One secure inbox for every compliance document.",
               },
               {
                 step: "03",
@@ -1132,11 +1132,11 @@ function Home() {
           </h2>
           <p className="mt-10 text-lg leading-relaxed text-slate-300 max-w-2xl mx-auto sm:text-xl">
             Stop spending Monday mornings chasing vendor documents. Stop
-            worrying about what the auditor will find. Stop paying for uninsured
-            subs.{" "}
+            worrying about what the auditor will find. Know which vendors are
+            covered before you pay.{" "}
             <strong className="text-white font-semibold">
-              One platform. Zero missed deadlines. Every vendor, every document,
-              every week.
+              One platform. Every vendor, every document, every week — tracked,
+              reported, and audit-ready.
             </strong>
           </p>
           <div className="mt-14 flex flex-col items-center gap-6">
