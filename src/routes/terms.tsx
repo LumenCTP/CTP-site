@@ -21,7 +21,7 @@ function TermsOfService() {
       <PageHeader
         eyebrow="Terms of Service"
         title="Simple, fair terms for using ClearToPay"
-        lastUpdated="August 10, 2026"
+        lastUpdated="August 14, 2026"
       />
 
       <main className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
@@ -83,6 +83,30 @@ function TermsOfService() {
               own judgment or professional advice.
             </li>
           </ul>
+        </LegalSection>
+
+        <LegalSection title="Insurance Coverage Responsibility">
+          <p>
+            ClearToPay does not sell insurance, provide coverage, or act as an
+            insurer, insurance agent, or broker. You decide which compliance documents
+            your vendors must provide and what coverage amounts or limits satisfy your
+            company's requirements. ClearToPay administers the documents you receive,
+            tracks expiration dates, and reports against the criteria you configure.
+            ClearToPay does not determine whether any vendor's coverage is adequate for
+            your business — that determination is yours.
+          </p>
+        </LegalSection>
+
+        <LegalSection title="Client Responsibility">
+          <p>
+            You are responsible for the accuracy of the information you enter into the
+            Service, including required document types, coverage amounts, vendor
+            details, and report recipients. Clear-to-Pay Reports are administrative
+            tools that reflect the documents on file and the criteria you configured;
+            they are not legal advice, and you should review each report before relying
+            on it for payment decisions. You remain responsible for your own payment,
+            coverage, and business decisions.
+          </p>
         </LegalSection>
 
         <LegalSection title="Payment Terms">
@@ -180,7 +204,7 @@ function TermsOfService() {
 
         <div className="gradient-divider my-12"></div>
         <p className="text-xs text-slate-400">
-          These Terms of Service were last updated on August 10, 2026.
+          These Terms of Service were last updated on August 14, 2026.
         </p>
       </main>
     </PageShell>

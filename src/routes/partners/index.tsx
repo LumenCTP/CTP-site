@@ -9,7 +9,7 @@ export const Route = createFileRoute("/partners/")({
       {
         name: "description",
         content:
-          "Earn recurring revenue by referring construction companies to ClearToPay. Insurance agents get automated compliance for their clients — and a monthly commission for every referral.",
+          "Earn recurring revenue by referring construction companies to ClearToPay. Insurance agents get automated compliance for their clients — and monthly Partner Referral Compensation for every referral.",
       },
     ],
   }),
@@ -173,7 +173,7 @@ function Partners() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-500 sm:text-xl">
             Refer construction companies to ClearToPay. They get automated
-            compliance management. You earn a commission on every referral —
+            compliance management. You earn Partner Referral Compensation on every referral —
             every month they stay, you get paid.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -226,7 +226,7 @@ function Partners() {
               step: "03",
               icon: <IconDollar />,
               title: "You earn",
-              body: "Receive recurring commission for every active client you referred. Monthly payouts, transparent tracking.",
+              body: "Receive recurring Partner Referral Compensation for every active client you referred. Monthly payouts, transparent tracking.",
             },
           ].map((s) => (
             <div
@@ -270,7 +270,7 @@ function Partners() {
               {
                 icon: <IconDollar />,
                 title: "Recurring revenue",
-                body: "Commission paid monthly for the life of each referred account — not a one-time finder's fee.",
+                body: "Partner Referral Compensation paid monthly for the life of each referred account — not a one-time finder's fee.",
               },
               {
                 icon: <IconHandshake />,
@@ -387,8 +387,8 @@ function Partners() {
           <div className="mt-12 space-y-4">
             {[
               {
-                q: "What's the commission?",
-                a: "Competitive recurring commission on every referred account. Contact us for details.",
+                q: "What's the Partner Referral Compensation?",
+                a: "Recurring Partner Referral Compensation on every referred account — 25% of eligible subscription revenue actually collected. Contact us for details.",
               },
               {
                 q: "How do I track my referrals?",
@@ -404,7 +404,7 @@ function Partners() {
               },
               {
                 q: "How do I get paid?",
-                a: "Monthly payouts via the platform.",
+                a: "Partner Referral Compensation is paid monthly via the platform.",
               },
             ].map((faq) => (
               <details

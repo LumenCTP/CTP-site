@@ -12,7 +12,7 @@ export const Route = createFileRoute("/partners/terms")({
       {
         name: "description",
         content:
-          "Terms and conditions for the ClearToPay Construction Partner Program — commissions, referral tracking, and eligibility.",
+          "Terms and conditions for the ClearToPay Construction Partner Program — Partner Referral Compensation, referral tracking, and eligibility.",
       },
     ],
   }),
@@ -54,7 +54,7 @@ function PartnerTerms() {
           <p>
             The Program rewards partners who refer construction companies to
             ClearToPay Construction. When a referred company signs up for a paid
-            ClearToPay subscription, the partner earns a commission as described
+            ClearToPay subscription, the partner earns Partner Referral Compensation as described
             below. The Program is free to join, and partners may cancel their
             participation at any time.
           </p>
@@ -68,7 +68,7 @@ function PartnerTerms() {
               ClearToPay.
             </li>
             <li>
-              Provide accurate contact and payment information for commission
+              Provide accurate contact and payment information for Partner Referral Compensation
               payouts.
             </li>
             <li>
@@ -79,19 +79,19 @@ function PartnerTerms() {
           <p>
             The Program is open to individuals and businesses. Employees and
             contractors of ClearToPay Construction are not eligible to earn
-            commissions.
+            Partner Referral Compensation.
           </p>
         </LegalSection>
 
         <LegalSection title="Referral Tracking">
           <p>
             Each approved partner receives a unique referral code and/or
-            referral link. Commissions are tracked only when a new customer
+            referral link. Partner Referral Compensation is tracked only when a new customer
             signs up through the partner's unique code or link, and only for
             customers who are new to ClearToPay (or who have been inactive for
             at least twelve (12) months). Self-referrals — signing up for the
             Service yourself through your own link — do not qualify for
-            commissions.
+            Partner Referral Compensation.
           </p>
           <p>
             You are responsible for sharing your unique referral link
@@ -100,38 +100,40 @@ function PartnerTerms() {
           </p>
         </LegalSection>
 
-        <LegalSection title="Commission Structure">
+        <LegalSection title="Partner Referral Compensation">
           <p>
-            Partners earn a commission equal to a percentage of the referred
-            customer's subscription fees for the first twelve (12) months of
-            paid service. The applicable percentage is set at the time of
-            partner approval and confirmed in your partner account. Commissions
-            do not apply to one-time fees, taxes, or refunded amounts.
-            ClearToPay may adjust the commission rate for future referrals with
-            notice, but adjustments will not affect commissions already earned.
+            Partners earn Partner Referral Compensation equal to twenty-five percent
+            (25%) of eligible ClearToPay subscription revenue actually collected from
+            the referred customer. Compensation is paid for as long as the referred
+            customer remains an active, eligible paying customer, with no limit on the
+            number of months compensation is paid. Compensation does not apply to
+            one-time fees, taxes, refunded amounts, or revenue not actually collected.
+            ClearToPay may adjust the compensation rate for future referrals with
+            notice, but adjustments will not affect compensation already earned.
           </p>
         </LegalSection>
 
-        <LegalSection title="Payment of Commissions">
+        <LegalSection title="Payment of Compensation">
           <p>
-            Commissions accrue when the referred customer's payment is received
-            and cleared. Accrued commissions are paid on a monthly basis,
-            provided the commission balance is at least $25; lower balances
-            carry over to the next month. Payments are made via the payout
-            method the partner designates in their account. You are responsible
-            for providing accurate payout information; delayed or failed
+            Partner Referral Compensation accrues when the referred customer's payment
+            is received and cleared by ClearToPay. Accrued compensation is paid on a
+            monthly basis, with no minimum balance required for payment. Payments are
+            made via the payout method the partner designates in their account. You are
+            responsible for providing accurate payout information; delayed or failed
             payments caused by incorrect information are your responsibility.
           </p>
           <p>
-            If a referred customer cancels, receives a refund, or fails to pay,
-            the associated commission may be withheld or reversed.
+            If a referred customer cancels, receives a refund, or fails to pay, the
+            associated compensation may be withheld or reversed. Compensation is
+            subject to applicable law and jurisdiction eligibility, and payment will be
+            withheld where prohibited by applicable law.
           </p>
         </LegalSection>
 
         <LegalSection title="Termination">
           <p>
             Either party may terminate participation in the Program at any time
-            with written notice. Commissions earned before the termination date
+            with written notice. Partner Referral Compensation earned before the termination date
             will still be paid under these Partner Terms. ClearToPay may
             terminate a partner's participation immediately if the partner
             engages in deceptive marketing, misrepresents ClearToPay or the
@@ -140,7 +142,7 @@ function PartnerTerms() {
           </p>
           <p>
             Upon termination, you must stop using your referral link and any
-            Program materials, and you forfeit any commissions associated with
+            Program materials, and you forfeit any Partner Referral Compensation associated with
             referrals made after the termination date.
           </p>
         </LegalSection>
@@ -151,7 +153,7 @@ function PartnerTerms() {
             venture, or partnership relationship between you and ClearToPay
             Construction. You participate in the Program as an independent
             contractor. You are solely responsible for any taxes owed on
-            commissions received, and you are not entitled to employee benefits,
+            Partner Referral Compensation received, and you are not entitled to employee benefits,
             workers' compensation, or similar protections. You may not act on
             behalf of ClearToPay or bind ClearToPay to any agreement, and you
             may not represent yourself as an employee or official representative
