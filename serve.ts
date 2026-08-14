@@ -159,18 +159,30 @@ for (let attempt = 1; ; attempt++) {
 
         // ── Admin SPA (production build): /app/* serves dist/app ──
         if (pathname.startsWith("/app")) {
-          let filePath = ADMIN_WEB_DIR + pathname;
-          const file = Bun.file(filePath);
-          if (await file.exists()) {
-            return new Response(file, {
-              headers: filePath.endsWith(".css") ? { "Content-Type": "text/css" } :
-                       filePath.endsWith(".js") ? { "Content-Type": "application/javascript" } : {},
+          // pathname ALREADY starts with "/app", so strip the prefix before joining
+          // with ADMIN_WEB_DIR (dist/app). Joining directly resolved assets to
+          // dist/app/app/... which never exists → every JS/CSS request fell back to
+          // index.html and the SPA never booted (blank page).
+          const rel = pathname.slice("/app".length);
+          const filePath = ADMIN_WEB_DIR + rel;
+
+          // Serve real files as-is — Bun.file sets the correct Content-Type by
+          // extension (application/javascript for .js, text/css for .css, …).
+          if (await Bun.file(filePath).exists()) {
+            return new Response(Bun.file(filePath));
+          }
+
+          // SPA-routing fallback: only extensionless routes (/app/login,
+          // /app/documents, …) and the exact /app or /app/ get index.html. A
+          // missing path that looks like an asset (has a dot in its last segment)
+          // is a genuine 404 — never hand the HTML shell back as JS/CSS.
+          const lastSegment = rel.split("/").pop() ?? "";
+          if (!rel || rel === "/" || !lastSegment.includes(".")) {
+            return new Response(Bun.file(ADMIN_WEB_DIR + "/index.html"), {
+              headers: { "Content-Type": "text/html" },
             });
           }
-          // Fallback to index.html for SPA routing (/app/login, /app/documents, …)
-          return new Response(Bun.file(ADMIN_WEB_DIR + "/index.html"), {
-            headers: { "Content-Type": "text/html" },
-          });
+          return new Response("Not found", { status: 404 });
         }
 
         // ── Marketing site: static files first, then SSR ──
