@@ -161,7 +161,7 @@ function Checkout() {
       {/* ═══════════ Hero Banner ═══════════ */}
       <section className="hero-bg relative overflow-hidden bg-slate-900 py-20">
         <div className="absolute inset-0" style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80')",
+          backgroundImage: "url('/images/roofing-crew.jpg')",
           backgroundSize: "cover", backgroundPosition: "center",
         }}>
           <div className="absolute inset-0 bg-slate-900/80"></div>

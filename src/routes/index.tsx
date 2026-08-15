@@ -390,8 +390,7 @@ function Home() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80')",
+            backgroundImage: "url('/images/new-home-construction.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -722,8 +721,7 @@ function Home() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600&q=80')",
+            backgroundImage: "url('/images/framers.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center 30%",
           }}
@@ -822,8 +820,7 @@ function Home() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&q=80')",
+            backgroundImage: "url('/images/roofing-crew.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center 40%",
           }}
@@ -1121,8 +1118,7 @@ function Home() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1624969862644-791f3dc98927?w=1600&q=80')",
+            backgroundImage: "url('/images/framing-sheathing.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -1333,6 +1329,9 @@ function Home() {
             <span className="text-xs text-slate-400">
               Built for construction. Backed by AI.
             </span>
+          </div>
+          <div className="mt-6 text-center text-[11px] leading-relaxed text-slate-300">
+            Site photography: Dwight Burdette (CC BY 3.0), Mr. Brian via Flickr (CC BY 2.0), Kgacs (CC BY-SA 4.0), and the National Park Service (public domain), via Wikimedia Commons.
           </div>
         </div>
       </footer>

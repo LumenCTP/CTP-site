@@ -172,7 +172,7 @@ function GetStarted() {
       {/* ═══════════ Hero Banner ═══════════ */}
       <section className="hero-bg relative overflow-hidden bg-slate-900 py-20">
         <div className="absolute inset-0" style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80')",
+          backgroundImage: "url('/images/framers.jpg')",
           backgroundSize: "cover", backgroundPosition: "center",
         }}>
           <div className="absolute inset-0 bg-slate-900/80"></div>
