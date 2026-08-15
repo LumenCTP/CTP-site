@@ -175,11 +175,13 @@ function PrivacyPolicy() {
               security practices.
             </li>
             <li>
-              <strong className="font-semibold text-slate-800">OpenAI</strong> —
-              powers our AI document extraction, which reads uploaded compliance
-              documents to pull key data such as policy numbers and expiration
-              dates. Documents are transmitted only for the purpose of
-              processing your account's documents.
+              <strong className="font-semibold text-slate-800">
+                Service providers
+              </strong>{" "}
+              — we use vetted service providers to support payment processing,
+              document processing, communications, storage, and security. They
+              may process data only as needed to provide contracted services and
+              subject to applicable agreements and safeguards.
             </li>
           </ul>
           <p>

@@ -423,6 +423,10 @@ function Home() {
               audit.
             </p>
 
+            <p className="mt-6 text-xs leading-relaxed text-slate-400/90 max-w-2xl mx-auto">
+              Clear-to-Pay statuses are informational administrative flags based on the documents on file and criteria configured by the client. They are not legal or insurance advice, do not verify coverage adequacy, and do not guarantee that a vendor should be paid. The client is responsible for final payment and coverage decisions.
+            </p>
+
             {/* CTAs */}
             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
@@ -479,17 +483,17 @@ function Home() {
               {
                 icon: <IconClipboard />,
                 title: "We Follow Up on Renewals Early",
-                desc: "Before a policy expires, we're already on it. Renewals are requested and chased ahead of time, so coverage never lapses.",
+                desc: "The system sends scheduled reminders before recorded expiration dates and flags documents that have not been renewed. Clients remain responsible for confirming that renewal documents are received, accurate, and sufficient. Reminders do not guarantee uninterrupted coverage.",
               },
               {
                 icon: <IconChart />,
                 title: "We Track Every Expiration Date",
-                desc: "Every COI, W-9, license, and policy date — tracked to the day. Nothing expires silently on your watch.",
+                desc: "The system sends scheduled reminders before recorded expiration dates and flags documents that have not been renewed. Clients remain responsible for confirming that renewal documents are received, accurate, and sufficient. Reminders do not guarantee uninterrupted coverage.",
               },
               {
                 icon: <IconFolder />,
                 title: "We Keep Files Audit-Ready",
-                desc: "Organized, versioned, and searchable records, maintained continuously. When the auditor asks, your files are already in order.",
+                desc: "ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.",
               },
               {
                 icon: <IconHardHat />,
@@ -536,6 +540,10 @@ function Home() {
             <p className="mt-6 text-lg leading-relaxed text-slate-500">
               One glance. Every vendor, every week. No spreadsheets, no digging
               through files.
+            </p>
+
+            <p className="mt-4 text-xs leading-relaxed text-slate-500 max-w-2xl mx-auto">
+              Clear-to-Pay statuses are informational administrative flags based on the documents on file and criteria configured by the client. They are not legal or insurance advice, do not verify coverage adequacy, and do not guarantee that a vendor should be paid. The client is responsible for final payment and coverage decisions.
             </p>
           </div>
 
@@ -773,8 +781,8 @@ function Home() {
               {
                 step: "05",
                 title: "We maintain your audit history",
-                desc: "Every document versioned, organized, and ready. When an audit comes up, your records are already in order.",
-                detail: "Audit-ready from day one.",
+                desc: "ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.",
+                detail: "ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.",
               },
             ].map((item, idx) => (
               <div
@@ -824,7 +832,7 @@ function Home() {
         <div className="grain-bg absolute inset-0"></div>
         <div className="relative flex h-full items-center justify-center px-6">
           <p className="max-w-3xl text-center text-2xl font-extrabold text-white drop-shadow-2xl sm:text-3xl lg:text-4xl tracking-[-0.02em] animate-on-scroll">
-            When the auditor calls, be ready in 5 minutes — not 5 days.
+            ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.
           </p>
         </div>
       </section>
@@ -838,13 +846,12 @@ function Home() {
               Audit Season
             </span>
             <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
-              Audit tomorrow? Your files are already ready.
+              ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500">
               Insurance audits. OSHA inspections. GC prequalification. Bank
               bonding reviews. They all want the same thing: your documents,
-              organized, complete, and ready. We keep them that way — so when
-              they call, you're already done.
+              organized, complete, and ready. ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.
             </p>
           </div>
 
@@ -910,7 +917,7 @@ function Home() {
       </section>
 
       {/* Inline CTA — after Audit */}
-      <InlineCTA note="When the auditor calls, you'll already be done. Start your 30-day free trial." />
+      <InlineCTA note="ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor. Start your 30-day free trial." />
 
       {/* ═══════════ Document Types ═══════════ */}
       <section className="py-14 sm:py-18">
@@ -930,13 +937,13 @@ function Home() {
                 doc: "Certificate of Insurance (COI)",
                 icon: <IconShield />,
                 detail:
-                  "The cornerstone. We check the holder, additional insured endorsements, and every date.",
+                  "We extract and organize holder, endorsement, and date information for client review.",
               },
               {
                 doc: "W-9 Form",
                 icon: <IconDoc />,
                 detail:
-                  "No more IRS surprises. Every vendor's W-9, verified and filed.",
+                  "We store submitted W-9s and flag missing information for client review.",
               },
               {
                 doc: "Workers' Compensation",
@@ -954,7 +961,7 @@ function Home() {
                 doc: "Commercial Auto",
                 icon: <IconBanknote />,
                 detail:
-                  "Every truck, van, and vehicle on your site — insured and verified.",
+                  "We track submitted commercial auto documents and their recorded expiration dates.",
               },
               {
                 doc: "Umbrella / Excess Liability",
@@ -966,7 +973,7 @@ function Home() {
                 doc: "Business License",
                 icon: <IconClipboard />,
                 detail:
-                  "Is your electrical sub actually licensed? We verify and track renewals.",
+                  "We track submitted license information and renewal dates. The client remains responsible for confirming licensing status with the issuing authority.",
               },
               {
                 doc: "Custom Documents",
@@ -1139,6 +1146,10 @@ function Home() {
               reported, and audit-ready.
             </strong>
           </p>
+
+          <p className="mt-6 text-xs leading-relaxed text-slate-400/90 max-w-2xl mx-auto">
+            Clear-to-Pay statuses are informational administrative flags based on the documents on file and criteria configured by the client. They are not legal or insurance advice, do not verify coverage adequacy, and do not guarantee that a vendor should be paid. The client is responsible for final payment and coverage decisions.
+          </p>
           <div className="mt-14 flex flex-col items-center gap-6">
             <a
               href="/get-started"
@@ -1184,8 +1195,7 @@ function Home() {
                 </span>
               </a>
               <p className="mt-5 text-sm leading-relaxed text-slate-500">
-                AI-powered vendor compliance management for construction
-                companies. Never miss an expired document again.
+                AI-assisted vendor document tracking for construction companies. Expiration reminders and reports are based on the information on file and should be reviewed.
               </p>
             </div>
             {/* Links */}

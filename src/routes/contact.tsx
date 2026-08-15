@@ -17,7 +17,6 @@ export const Route = createFileRoute("/contact")({
 });
 
 const SUPPORT_EMAIL = "support@cleartopayconstruction.com";
-const COMPLIANCE_INBOX = "cleartopay-compliance-0d8d884b@ctomail.io";
 
 const IconMail = () => (
   <svg
@@ -125,17 +124,8 @@ function Contact() {
             title="Submit Compliance Documents"
           >
             <p>
-              Vendors and insurance agents can email certificates of insurance,
-              W-9s, and other compliance documents directly to our secure
-              compliance inbox at{" "}
-              <a
-                href={`mailto:${COMPLIANCE_INBOX}`}
-                className="break-all font-semibold text-blue-600 hover:underline"
-              >
-                {COMPLIANCE_INBOX}
-              </a>
-              . Documents are processed automatically and attached to the right
-              vendor.
+              Submit compliance documents using the dedicated address shown in
+              your ClearToPay account or provided by your contractor.
             </p>
           </ContactCard>
 

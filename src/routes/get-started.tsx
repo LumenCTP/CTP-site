@@ -185,8 +185,8 @@ function GetStarted() {
             Start Protecting Your Projects Today
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-slate-300">
-            Choose your plan, tell us about your company, and we'll have you set up
-            before your next audit.
+            Choose your plan and configure your account. Setup timing and audit
+            readiness depend on the information and documents provided.
           </p>
         </div>
       </section>

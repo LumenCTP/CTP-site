@@ -102,8 +102,9 @@ export function PageShell({ children }: { children: ReactNode }) {
             <div className="lg:col-span-1">
               <Logo />
               <p className="mt-5 text-sm leading-relaxed text-slate-500">
-                AI-powered vendor compliance management for construction
-                companies. Never miss an expired document again.
+                AI-assisted vendor document tracking for construction companies.
+                Expiration reminders and reports are based on the information on
+                file and should be reviewed.
               </p>
             </div>
             <div>

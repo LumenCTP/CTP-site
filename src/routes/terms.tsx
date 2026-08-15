@@ -109,6 +109,19 @@ function TermsOfService() {
           </p>
         </LegalSection>
 
+        <LegalSection title="AI-Assisted Data">
+          <p>
+            The Service may use automated tools to extract, classify, or
+            summarize information from documents. Automated results, confidence
+            scores, reminders, statuses, and reports may be incomplete,
+            inaccurate, or delayed. You must compare them with the source
+            documents and obtain appropriate legal, insurance, tax, or other
+            professional advice before relying on them. ClearToPay does not
+            verify document authenticity, coverage, endorsements, licensing, tax
+            status, or payment eligibility.
+          </p>
+        </LegalSection>
+
         <LegalSection title="Payment Terms">
           <p>
             The Service is offered on a month-to-month or annual subscription
