@@ -12,6 +12,7 @@ export const Route = createFileRoute("/partners/")({
           "Earn recurring revenue by referring construction companies to ClearToPay. Insurance agents get automated compliance for their clients — and monthly Partner Referral Compensation for every referral.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/partners/" }],
   }),
   component: Partners,
 });

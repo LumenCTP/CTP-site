@@ -15,12 +15,39 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "ClearToPay Construction — AI-Powered Vendor Compliance for Construction" },
       { name: "description", content: "Automate vendor compliance management. AI processes COIs, W-9s, and insurance docs. Weekly Clear-to-Pay reports. Audit-ready packages in minutes. Built for construction companies." },
+      { property: "og:title", content: "ClearToPay Construction — AI-Powered Vendor Compliance for Construction" },
+      { property: "og:description", content: "Automate vendor compliance management. AI processes COIs, W-9s, and insurance docs. Weekly Clear-to-Pay reports. Audit-ready packages in minutes. Built for construction companies." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.cleartopayconstruction.com/" },
+      { property: "og:site_name", content: "ClearToPay Construction" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [
+      { rel: "canonical", href: "https://www.cleartopayconstruction.com/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" },
       { rel: "stylesheet", href: appCss },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: "ClearToPay Construction",
+              url: "https://www.cleartopayconstruction.com/",
+            },
+            {
+              "@type": "WebSite",
+              name: "ClearToPay Construction",
+              url: "https://www.cleartopayconstruction.com/",
+            },
+          ],
+        }),
+      },
     ],
   }),
   notFoundComponent: () => <div>Page not found</div>,

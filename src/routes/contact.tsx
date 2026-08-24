@@ -12,6 +12,7 @@ export const Route = createFileRoute("/contact")({
           "Get in touch with ClearToPay Construction — support, sales, and vendor document submissions.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/contact" }],
   }),
   component: Contact,
 });

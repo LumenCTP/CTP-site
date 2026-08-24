@@ -3,6 +3,17 @@ import { useState, useRef, useEffect } from "react";
 import { MobileNav } from "../components/MobileNav";
 
 export const Route = createFileRoute("/get-started")({
+  head: () => ({
+    meta: [
+      { title: "Get Started — ClearToPay Construction" },
+      {
+        name: "description",
+        content:
+          "Choose your plan and configure your account. Setup timing and audit readiness depend on the information and documents provided.",
+      },
+    ],
+    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/get-started" }],
+  }),
   component: GetStarted,
 });
 

@@ -998,6 +998,68 @@ function Home() {
         </div>
       </section>
 
+      {/* ═══════════ Your Data ═══════════ */}
+      <section id="your-data" className="py-14 sm:py-18">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="animate-on-scroll rounded-2xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+            <div className="text-center">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+                Your Data
+              </span>
+              <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-4xl">
+                We never sell your data. Ever.
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+                Your vendor lists, your compliance documents, and your company
+                information are yours. We do not sell, rent, or trade them to
+                anyone — not to marketers, not to data brokers, not to insurers.
+                We use your data for one purpose only: delivering the service you
+                signed up for.
+              </p>
+            </div>
+            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+              <div className="text-center">
+                <h3 className="text-sm font-bold text-slate-900">
+                  Never sold or rented
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                  No marketing lists, no data brokers, no third-party sales — in
+                  writing, in our Privacy Policy.
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-sm font-bold text-slate-900">
+                  Visible only to you
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                  Every account is separated. Your vendors and documents are
+                  visible to your team alone — never to another customer.
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-sm font-bold text-slate-900">
+                  Encrypted in transit and at rest
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                  Your documents are protected in transit and in storage, and
+                  stay available to you for as long as you're a customer.
+                </p>
+              </div>
+            </div>
+            <p className="mt-8 text-center text-sm text-slate-500">
+              Read the full commitment in our{" "}
+              <a
+                href="/privacy"
+                className="font-semibold text-blue-600 hover:text-blue-700"
+              >
+                Privacy Policy
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ Pricing ═══════════ */}
       <section id="pricing" className="relative py-14 sm:py-18 bg-white">
         <div className="dot-pattern absolute inset-0"></div>

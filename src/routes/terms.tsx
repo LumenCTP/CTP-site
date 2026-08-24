@@ -11,6 +11,7 @@ export const Route = createFileRoute("/terms")({
           "The terms and conditions for using ClearToPay Construction's AI-powered vendor compliance management platform.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/terms" }],
   }),
   component: TermsOfService,
 });

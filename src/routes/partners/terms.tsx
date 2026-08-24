@@ -15,6 +15,7 @@ export const Route = createFileRoute("/partners/terms")({
           "Terms and conditions for the ClearToPay Construction Partner Program — Partner Referral Compensation, referral tracking, and eligibility.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/partners/terms" }],
   }),
   component: PartnerTerms,
 });
