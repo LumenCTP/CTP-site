@@ -432,8 +432,8 @@ function Checkout() {
             <div className="flex items-center gap-6">
               <a href="/privacy" className="text-sm text-slate-500 transition-colors hover:text-blue-600">Privacy Policy</a>
               <a href="/terms" className="text-sm text-slate-500 transition-colors hover:text-blue-600">Terms of Service</a>
-              <a href="mailto:support@cleartopay.com" className="text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700">
-                Questions? support@cleartopay.com
+              <a href="mailto:support@cleartopayconstruction.com" className="text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700">
+                Questions? support@cleartopayconstruction.com
               </a>
             </div>
           </div>
