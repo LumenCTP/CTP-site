@@ -344,6 +344,12 @@ function Home() {
             >
               Contact
             </a>
+            <a
+              href="/partners"
+              className="flex items-center py-3 transition-all duration-300 hover:text-blue-600"
+            >
+              Partners
+            </a>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <a
@@ -1060,6 +1066,34 @@ function Home() {
               </a>
               .
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ Partner Program ═══════════ */}
+      <section id="partners" className="relative overflow-hidden bg-slate-900 py-16 sm:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-300">
+            Partner Program
+          </span>
+          <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-white sm:text-5xl sm:tracking-[-0.025em]">
+            Know contractors? Earn recurring revenue.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
+            Insurance agents, CPAs, bookkeepers, and consultants earn recurring
+            Partner Referral Compensation — 25% of eligible revenue actually
+            collected — paid monthly for the life of each referred account.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="/partners"
+              className="btn-glow inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 text-base font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-2xl hover:shadow-blue-600/40"
+            >
+              Learn about the Partner Program
+              <span aria-hidden="true" className="text-lg leading-none">
+                &rarr;
+              </span>
+            </a>
           </div>
         </div>
       </section>
