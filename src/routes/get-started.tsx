@@ -25,6 +25,14 @@ function GetStarted() {
   const [submitting, setSubmitting] = useState(false);
   const [referrer, setReferrer] = useState<string | null>(null);
 
+  // Manual referral-code entry: an optional plain text input pre-filled from
+  // the ?ref= URL param (when present) and validated live against the
+  // tracking endpoint. Unknown/bad codes never block signup — the backend
+  // silently ignores them.
+  const [typedCode, setTypedCode] = useState<string>("");
+  const [codeStatus, setCodeStatus] = useState<"idle" | "checking" | "valid" | "invalid">("idle");
+  const [typedReferrer, setTypedReferrer] = useState<string | null>(null);
+
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const companyNameRef = useRef<HTMLInputElement>(null);
@@ -54,6 +62,50 @@ function GetStarted() {
     };
   }, [refCode]);
 
+  // Pre-fill the manual code input from the ?ref= URL param (client-only, so
+  // SSR stays deterministic). The user can edit or clear it.
+  useEffect(() => {
+    if (refCode) setTypedCode(refCode);
+  }, [refCode]);
+
+  // Live validation of the typed code: gentle + non-blocking. A valid code
+  // shows who is referring; an unknown code shows a soft hint. Never blocks
+  // submission (a bad code is silently ignored by the backend anyway).
+  useEffect(() => {
+    const code = typedCode.trim().toUpperCase();
+    if (!code) {
+      setCodeStatus("idle");
+      setTypedReferrer(null);
+      return;
+    }
+    setCodeStatus("checking");
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      fetch(`/api/referrals/track?code=${encodeURIComponent(code)}`)
+        .then((r) => r.json())
+        .then((d) => {
+          if (cancelled) return;
+          if (d?.partner?.name) {
+            setTypedReferrer(d.partner.name);
+            setCodeStatus("valid");
+          } else {
+            setTypedReferrer(null);
+            setCodeStatus("invalid");
+          }
+        })
+        .catch(() => {
+          if (cancelled) return;
+          // Tracking unavailable — don't nag, just stay silent.
+          setCodeStatus("idle");
+          setTypedReferrer(null);
+        });
+    }, 400);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [typedCode]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -64,6 +116,11 @@ function GetStarted() {
     const companyName = companyNameRef.current?.value?.trim() || "";
     const email = emailRef.current?.value?.trim() || "";
     const password = passwordRef.current?.value || "";
+
+    // Referral code: prefer the manually-typed value (trimmed, uppercased);
+    // fall back to the ?ref= URL param when the field is blank. A bad code is
+    // silently ignored by the backend, so it never blocks signup.
+    const referralCode = (typedCode.trim().toUpperCase() || (refCode || "").trim().toUpperCase() || null);
 
     if (!firstName) {
       setError("Please enter your first name.");
@@ -102,7 +159,7 @@ function GetStarted() {
           email,
           password,
           plan: selectedPlan,
-          ...(refCode ? { referral_code: refCode } : {}),
+          ...(referralCode ? { referral_code: referralCode } : {}),
         }),
       });
 
@@ -366,6 +423,38 @@ function GetStarted() {
                       placeholder="john@abcconstruction.com"
                       className="input-premium mt-2"
                     />
+                  </div>
+
+                  {/* Referral Code (optional) */}
+                  <div>
+                    <label htmlFor="referralCode" className="block text-sm font-semibold text-slate-700">
+                      Referral code <span className="font-normal text-slate-400">(optional)</span>
+                    </label>
+                    <input
+                      id="referralCode" name="referralCode" type="text"
+                      value={typedCode}
+                      onChange={(e) => setTypedCode(e.target.value)}
+                      placeholder="e.g. SMITHX7K"
+                      autoComplete="off"
+                      spellCheck={false}
+                      aria-describedby="referralCodeHint"
+                      className="input-premium mt-2 uppercase"
+                    />
+                    <div id="referralCodeHint" className="mt-1.5 text-sm" role="status" aria-live="polite">
+                      {codeStatus === "checking" && (
+                        <span className="text-slate-400">Checking referral code…</span>
+                      )}
+                      {codeStatus === "valid" && typedReferrer && (
+                        <span className="text-green-700">
+                          <span className="font-semibold">✓</span> Referred by <strong>{typedReferrer}</strong>
+                        </span>
+                      )}
+                      {codeStatus === "invalid" && (
+                        <span className="text-amber-600">
+                          Invalid referral code — you can leave it blank, it won't block signup.
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* Password */}
