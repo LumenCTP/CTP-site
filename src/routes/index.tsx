@@ -528,6 +528,25 @@ function Home() {
       {/* Inline CTA — after We Do the Work */}
       <InlineCTA />
 
+      {/* ═══════════ Image Banner — tracking ═══════════ */}
+      <section className="relative h-80 sm:h-96 overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url('/images/commercial-building.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 35%",
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/75 via-slate-900/45 to-slate-900/75"></div>
+        <div className="grain-bg absolute inset-0"></div>
+        <div className="relative flex h-full items-center justify-center px-6">
+          <p className="max-w-3xl text-center text-2xl font-extrabold text-white drop-shadow-2xl sm:text-3xl lg:text-4xl tracking-[-0.02em] animate-on-scroll">
+            Every vendor. Every document. Every deadline — tracked for you.
+          </p>
+        </div>
+      </section>
+
       {/* ═══════════ Monday Report Mock ═══════════ */}
       <section
         id="monday-report"
@@ -1008,6 +1027,25 @@ function Home() {
         </div>
       </section>
 
+      {/* ═══════════ Image Banner — job sites ═══════════ */}
+      <section className="relative h-80 sm:h-96 overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url('/images/mas-construction.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 40%",
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/75 via-slate-900/45 to-slate-900/75"></div>
+        <div className="grain-bg absolute inset-0"></div>
+        <div className="relative flex h-full items-center justify-center px-6">
+          <p className="max-w-3xl text-center text-2xl font-extrabold text-white drop-shadow-2xl sm:text-3xl lg:text-4xl tracking-[-0.02em] animate-on-scroll">
+            Compliance that keeps pace with your job sites.
+          </p>
+        </div>
+      </section>
+
       {/* ═══════════ Your Data ═══════════ */}
       <section id="your-data" className="py-14 sm:py-18">
         <div className="mx-auto max-w-5xl px-6">
@@ -1067,6 +1105,25 @@ function Home() {
               .
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════ Image Banner — audit-ready ═══════════ */}
+      <section className="relative h-80 sm:h-96 overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url('/images/bridge-construction.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 45%",
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/75 via-slate-900/45 to-slate-900/75"></div>
+        <div className="grain-bg absolute inset-0"></div>
+        <div className="relative flex h-full items-center justify-center px-6">
+          <p className="max-w-3xl text-center text-2xl font-extrabold text-white drop-shadow-2xl sm:text-3xl lg:text-4xl tracking-[-0.02em] animate-on-scroll">
+            Audit-ready. Every day of the year.
+          </p>
         </div>
       </section>
 
