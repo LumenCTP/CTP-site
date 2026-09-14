@@ -1081,8 +1081,8 @@ function Home() {
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
             Insurance agents, CPAs, bookkeepers, and consultants earn recurring
-            Partner Referral Compensation — 25% of eligible revenue actually
-            collected — paid monthly for the life of each referred account.
+            Partner Referral Compensation — paid monthly for the life of each
+            referred account.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
