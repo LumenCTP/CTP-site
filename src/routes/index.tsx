@@ -1210,6 +1210,73 @@ function Home() {
         </div>
       </section>
 
+      {/* ═══════════ FAQ ═══════════ */}
+      <section id="faq" className="relative py-14 sm:py-18 bg-white">
+        <div className="dot-pattern absolute inset-0"></div>
+        <div className="relative mx-auto max-w-3xl px-6">
+          <div className="text-center animate-on-scroll">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+              FAQ
+            </span>
+            <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
+              Common questions
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-slate-500">
+              Everything you need to know before you get started.
+            </p>
+          </div>
+
+          <div className="mt-12 space-y-4">
+            {[
+              {
+                q: "What documents does ClearToPay track?",
+                a: "Certificates of insurance (COIs), W-9s, and other compliance documents — general liability, workers' compensation, commercial auto, umbrella, business licenses, and any custom document types you require.",
+              },
+              {
+                q: "How does ClearToPay decide if a vendor is safe to pay?",
+                a: "We extract the key details from each document — coverage dates, limits, and policy numbers — and flag every vendor as Approved, Review, or Hold based on what's on file and the requirements you configure. These are informational flags to help you decide; you remain responsible for verifying coverage adequacy and making final payment decisions.",
+              },
+              {
+                q: "How much does it cost?",
+                a: "$149/month (first month free), or $1,200/year billed annually — that's $100/month and saves you $588 versus monthly. No per-vendor fees, no hidden costs.",
+              },
+              {
+                q: "Is there a long-term contract?",
+                a: "No. It's month-to-month with no commitment — cancel anytime.",
+              },
+              {
+                q: "How long does setup take?",
+                a: "About an hour. We help you import your vendor list and configure your required document types and report recipients.",
+              },
+              {
+                q: "How do documents get into the system?",
+                a: "Upload them yourself, or have vendors and insurance agents email them to your dedicated compliance inbox. We extract the data and flag what's missing or expiring.",
+              },
+              {
+                q: "What's in the weekly Clear-to-Pay Report?",
+                a: "Every Monday you get a report showing vendors approved for payment, vendors needing review, vendors on hold, documents expiring during the payment week, and missing documents.",
+              },
+              {
+                q: "Can I download reports and audit packages?",
+                a: "Yes — PDF and Excel reports on demand, plus complete audit packages whenever you need them.",
+              },
+            ].map((item) => (
+              <div
+                key={item.q}
+                className="rounded-2xl border border-slate-200/60 bg-white p-6 shadow-sm transition-colors hover:border-blue-200"
+              >
+                <h3 className="text-base font-bold tracking-[-0.01em] text-slate-900">
+                  {item.q}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ CTA ═══════════ */}
       <section
         id="contact"
