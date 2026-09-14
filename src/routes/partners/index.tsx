@@ -12,7 +12,7 @@ export const Route = createFileRoute("/partners/")({
           "Earn recurring revenue by referring construction companies to ClearToPay. Insurance agents get automated compliance for their clients — and monthly Partner Referral Compensation for every referral.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/partners/" }],
+    links: [{ rel: "canonical", href: "https://cleartopay.ctonew.app/partners/" }],
   }),
   component: Partners,
 });
@@ -178,7 +178,7 @@ function Partners() {
             every month they stay, you get paid.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <PartnerButton>Become a Partner</PartnerButton>
+            <PartnerButton>Partner Program</PartnerButton>
             <a
               href="#how-it-works"
               className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-8 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:border-blue-200 hover:text-blue-600"
@@ -321,7 +321,7 @@ function Partners() {
                 href={PARTNER_REGISTER_URL}
                 className="btn-glow mt-6 inline-flex items-center gap-2 self-start rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
               >
-                Become a Partner
+                Partner Program
                 <span aria-hidden="true" className="text-base leading-none">
                   &rarr;
                 </span>
@@ -442,7 +442,7 @@ function Partners() {
             up.
           </p>
           <div className="mt-9">
-            <PartnerButton>Become a Partner</PartnerButton>
+            <PartnerButton>Partner Program</PartnerButton>
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ export const Route = createFileRoute("/privacy")({
           "How ClearToPay Construction collects, uses, and protects your data — company information, vendor lists, and compliance documents.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/privacy" }],
+    links: [{ rel: "canonical", href: "https://cleartopay.ctonew.app/privacy" }],
   }),
   component: PrivacyPolicy,
 });

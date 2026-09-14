@@ -12,7 +12,7 @@ export const Route = createFileRoute("/get-started")({
           "Choose your plan and configure your account. Setup timing and audit readiness depend on the information and documents provided.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/get-started" }],
+    links: [{ rel: "canonical", href: "https://cleartopay.ctonew.app/get-started" }],
   }),
   component: GetStarted,
 });

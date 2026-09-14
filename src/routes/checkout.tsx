@@ -12,7 +12,7 @@ export const Route = createFileRoute("/checkout")({
           "Choose your plan — $149/month month-to-month or $1,200/year billed annually. Start your 30-day free trial with a card on file.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://www.cleartopayconstruction.com/checkout" }],
+    links: [{ rel: "canonical", href: "https://cleartopay.ctonew.app/checkout" }],
   }),
   component: Checkout,
 });

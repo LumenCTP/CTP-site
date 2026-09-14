@@ -487,12 +487,12 @@ function Home() {
               {
                 icon: <IconChart />,
                 title: "We Track Every Expiration Date",
-                desc: "The system sends scheduled reminders before recorded expiration dates and flags documents that have not been renewed. Clients remain responsible for confirming that renewal documents are received, accurate, and sufficient. Reminders do not guarantee uninterrupted coverage.",
+                desc: "Every policy, license, and certificate date is logged and tracked to the day — so a lapse never sneaks up on you.",
               },
               {
                 icon: <IconFolder />,
                 title: "We Keep Files Audit-Ready",
-                desc: "ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.",
+                desc: "Documents are filed by vendor and searchable, so when an auditor asks, you can pull a complete package in minutes instead of days.",
               },
               {
                 icon: <IconHardHat />,
@@ -779,8 +779,8 @@ function Home() {
               {
                 step: "05",
                 title: "We maintain your audit history",
-                desc: "ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.",
-                detail: "ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.",
+                desc: "We file every document by vendor and keep a complete, searchable history — so when audit season hits, you're pulling a package in minutes, not days.",
+                detail: "Every document version preserved.",
               },
             ].map((item, idx) => (
               <div
@@ -829,7 +829,7 @@ function Home() {
         <div className="grain-bg absolute inset-0"></div>
         <div className="relative flex h-full items-center justify-center px-6">
           <p className="max-w-3xl text-center text-2xl font-extrabold text-white drop-shadow-2xl sm:text-3xl lg:text-4xl tracking-[-0.02em] animate-on-scroll">
-            ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.
+            Audit season doesn't have to be chaos. Be ready before they ask.
           </p>
         </div>
       </section>
@@ -843,12 +843,12 @@ function Home() {
               Audit Season
             </span>
             <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.02em] text-slate-900 sm:text-5xl sm:tracking-[-0.025em]">
-              ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.
+              Audit-ready, whenever they ask.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate-500">
               Insurance audits. OSHA inspections. GC prequalification. Bank
               bonding reviews. They all want the same thing: your documents,
-              organized, complete, and ready. ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor.
+              organized, complete, and ready.
             </p>
           </div>
 
@@ -910,11 +910,15 @@ function Home() {
               </ul>
             </div>
           </div>
+
+          <p className="mt-8 text-center text-xs leading-relaxed text-slate-500 max-w-2xl mx-auto">
+            Audit packages contain the documents on file and should be reviewed for completeness before providing them to an auditor. Package contents may not satisfy every audit request.
+          </p>
         </div>
       </section>
 
       {/* Inline CTA — after Audit */}
-      <InlineCTA note="ClearToPay organizes the available records into searchable audit packages. Package contents depend on the documents submitted and reviewed and may not satisfy every audit request. Clients should review each package for completeness before providing it to an auditor. Start your 30-day free trial." />
+      <InlineCTA note="Pull any date range, any vendor — in minutes. Start your 30-day free trial." />
 
       {/* ═══════════ Document Types ═══════════ */}
       <section className="py-14 sm:py-18">
