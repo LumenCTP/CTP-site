@@ -24,7 +24,7 @@ const PLAN_META: Record<Plan, { label: string; price: string; per: string; butto
     label: "Month-to-Month",
     price: "$149",
     per: "/month",
-    button: "Start free trial — $149/month",
+    button: "Start 30-day free trial (then $149/month)",
     note: "Billed monthly after your 30-day free trial. Cancel anytime.",
     firstCharge: "After 30-day trial ($149)",
   },
@@ -32,7 +32,7 @@ const PLAN_META: Record<Plan, { label: string; price: string; per: string; butto
     label: "Annual Plan",
     price: "$1,200",
     per: "/year",
-    button: "Start free trial — $1,200/year",
+    button: "Start 30-day free trial (then $1,200/year)",
     note: "Billed once per year after your 30-day free trial. That's $100/month — save $588 vs. monthly.",
     firstCharge: "After 30-day trial ($1,200)",
   },
@@ -384,6 +384,10 @@ function Checkout() {
                     <div className="mt-2 flex items-center justify-between">
                       <span className="text-sm text-slate-600">First charge</span>
                       <span className="text-sm text-slate-500">{PLAN_META[selectedPlan].firstCharge}</span>
+                    </div>
+                    <div className="mt-2 border-t border-slate-200 pt-3 flex items-center justify-between">
+                      <span className="text-sm font-bold text-slate-900">Due today</span>
+                      <span className="text-sm font-extrabold text-green-600">$0</span>
                     </div>
                     <p className="mt-4 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
                       {PLAN_META[selectedPlan].note} A card is required at checkout —

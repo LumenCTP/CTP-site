@@ -20,10 +20,20 @@ export const Route = createFileRoute("/get-started")({
 type Plan = "monthly" | "annual";
 
 function GetStarted() {
-  const [selectedPlan, setSelectedPlan] = useState<Plan>("monthly");
+  const [selectedPlan, setSelectedPlan] = useState<Plan>(() => {
+    if (typeof window === "undefined") return "monthly";
+    const p = new URLSearchParams(window.location.search).get("plan");
+    return p === "annual" ? "annual" : "monthly";
+  });
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [referrer, setReferrer] = useState<string | null>(null);
+  // True once /api/auth/register has created the account. From that moment the
+  // only thing left is the Stripe Checkout Session — the signup form is
+  // replaced by a one-click retry so the user is never asked for the same
+  // details (or the same plan) twice.
+  const [registered, setRegistered] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   // Manual referral-code entry: an optional plain text input pre-filled from
   // the ?ref= URL param (when present) and validated live against the
@@ -106,6 +116,62 @@ function GetStarted() {
     };
   }, [typedCode]);
 
+  // Create the Stripe Checkout Session and send the browser straight to
+  // Stripe's hosted page (card on file, 30-day free trial, $0 charged today).
+  // This is the ONE payment step of the signup flow: the plan chosen on this
+  // page travels inside the session, so there is no second plan/order page to
+  // re-confirm. Throws on failure so the caller can offer a retry.
+  const startStripeCheckout = async (plan: Plan, email: string, token: string | null) => {
+    const res = await fetch("/api/checkout/session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Tie the session to the freshly-created tenant (client_reference_id)
+        // so /api/checkout/confirm can verify ownership on the way back.
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({ plan, ...(email ? { email } : {}) }),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || !json.url) {
+      throw new Error(json.error || "Checkout could not be started. Please try again.");
+    }
+    // Stash the session id so the app's confirm step works after the Stripe
+    // redirect even if the ?session_id= query param gets stripped.
+    try {
+      localStorage.setItem("cleartopay_checkout_session", json.session_id);
+    } catch {
+      // localStorage unavailable — the URL ?session_id= param still works.
+    }
+    window.location.href = json.url as string;
+  };
+
+  // Retry for the (rare) case where the account was created but the Stripe
+  // session call failed. Registration is NOT repeated — only the checkout
+  // session is retried, using the token stored on this device.
+  const handleRetryCheckout = async () => {
+    setCheckoutError(null);
+    setSubmitting(true);
+    let token: string | null = null;
+    let email = "";
+    try {
+      token = localStorage.getItem("cleartopay_token");
+      const raw = localStorage.getItem("cleartopay_user");
+      if (raw) {
+        const u = JSON.parse(raw);
+        if (typeof u?.email === "string") email = u.email;
+      }
+    } catch {
+      // localStorage unavailable — the API can still resolve the tenant by email.
+    }
+    try {
+      await startStripeCheckout(selectedPlan, email, token);
+    } catch (err) {
+      setCheckoutError(err instanceof Error ? err.message : "Checkout could not be started. Please try again.");
+      setSubmitting(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -142,8 +208,8 @@ function GetStarted() {
       setError("Please enter a password.");
       return;
     }
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters.");
+    if (password.length < 10) {
+      setError("Password must be at least 10 characters.");
       return;
     }
 
@@ -180,14 +246,19 @@ function GetStarted() {
       return;
     }
 
-    // Registration creates a PENDING tenant. Redirect to the /checkout page on
-    // the SAME host
-    // (relative path) so the token stored in localStorage above survives the
-    // navigation — the marketing site and the app share one origin
-    // (e.g. cleartopay.ctonew.app/get-started → cleartopay.ctonew.app/app). A
-    // hard-coded absolute URL would cross origins and drop the login token.
-    // Checkout starts the 30-day free trial (card on file, no charge yet).
-    window.location.href = `/checkout?plan=${selectedPlan}&registered=1`;
+    // Registration creates a PENDING tenant. Hand off straight to Stripe's
+    // hosted checkout on the SAME host (the marketing site and the app share
+    // one origin, so the token stored above survives the navigation) —
+    // registering and starting the trial are one continuous step. The plan
+    // picked above travels inside the Checkout Session, so the user is not
+    // shown a second plan/order screen to re-confirm before paying.
+    setRegistered(true);
+    try {
+      await startStripeCheckout(selectedPlan, email, json.token ?? null);
+    } catch (err) {
+      setCheckoutError(err instanceof Error ? err.message : "Checkout could not be started. Please try again.");
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -342,7 +413,7 @@ function GetStarted() {
                     No payment today
                   </div>
                   <ul className="mt-5 space-y-2.5 text-sm text-slate-600">
-                    {["Everything in Monthly", "Priority support", "Unlimited vendors"].map((item) => (
+                    {["Everything in Monthly", "Unlimited vendors"].map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
                         <svg className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
@@ -372,7 +443,7 @@ function GetStarted() {
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+                <form onSubmit={handleSubmit} className="mt-10 space-y-6" hidden={registered}>
                   {/* First & Last Name */}
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
@@ -465,7 +536,7 @@ function GetStarted() {
                     <input
                       id="password" name="password" type="password" required
                       ref={passwordRef}
-                      placeholder="At least 6 characters"
+                      placeholder="At least 10 characters"
                       className="input-premium mt-2"
                     />
                   </div>
@@ -524,13 +595,13 @@ function GetStarted() {
                     disabled={submitting}
                     className="btn-glow w-full rounded-2xl bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-2xl hover:shadow-blue-600/30 focus:outline-none focus:ring-4 focus:ring-blue-500/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {submitting ? "Creating your account..." : "Create My Account"}
+                    {submitting ? "Creating your account..." : "Create Account & Start 30-Day Free Trial"}
                   </button>
 
                   <p className="text-center text-xs text-slate-400">
-                    You'll be redirected to start your 30-day free trial. Your card
-                    is entered at checkout but you won't be charged until your trial
-                    ends — no payment is required today.
+                    You'll go straight to secure checkout to start your 30-day free
+                    trial. Your card is entered there but you won't be charged until
+                    your trial ends — no payment is required today.
                   </p>
 
                   <p className="text-center text-sm text-slate-500">
@@ -543,6 +614,46 @@ function GetStarted() {
                     </a>
                   </p>
                 </form>
+
+                {/* Account created, but the Stripe session didn't start (network
+                    blip, etc.). Never ask for the same details again — the tenant
+                    already exists, so this is a one-click retry of checkout only. */}
+                {registered && (
+                  <div className="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+                    <h3 className="text-lg font-bold text-slate-900">
+                      Your account is created — you just need to finish checkout
+                    </h3>
+                    <p className="mt-2 text-sm text-amber-900">
+                      Nothing has been charged. Your plan ({selectedPlan === "annual" ? "Annual, $1,200/year" : "Month-to-Month, $149/month"}) starts with a
+                      30-day free trial: your card is entered at checkout and you won't
+                      be charged until the trial ends.
+                    </p>
+                    {checkoutError && (
+                      <p className="mt-3 rounded-lg border border-amber-300 bg-white px-4 py-3 text-sm text-amber-900">
+                        {checkoutError}
+                      </p>
+                    )}
+                    <button
+                      type="button"
+                      onClick={handleRetryCheckout}
+                      disabled={submitting}
+                      className="btn-glow mt-5 w-full rounded-2xl bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-2xl hover:shadow-blue-600/30 focus:outline-none focus:ring-4 focus:ring-blue-500/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {submitting ? "Opening secure checkout..." : "Continue to secure checkout"}
+                    </button>
+                    <p className="mt-4 text-center text-sm text-slate-500">
+                      You can also{" "}
+                      <a
+                        href="/app/login"
+                        className="font-semibold text-blue-600 underline-offset-2 hover:underline"
+                      >
+                        sign in
+                      </a>{" "}
+                      with the email and password you just used — your plan can be
+                      started from inside the app.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -572,7 +683,7 @@ function GetStarted() {
             </span>
             <div className="flex gap-6 text-sm text-slate-400">
               <a href="/" className="inline-block py-3 transition-colors hover:text-slate-600">Home</a>
-              <a href="/#features" className="inline-block py-3 transition-colors hover:text-slate-600">Features</a>
+              <a href="/#we-do-the-work" className="inline-block py-3 transition-colors hover:text-slate-600">Features</a>
               <a href="/#audit" className="inline-block py-3 transition-colors hover:text-slate-600">Audits</a>
               <a href="/#contact" className="inline-block py-3 transition-colors hover:text-slate-600">Contact</a>
             </div>
