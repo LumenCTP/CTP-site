@@ -18,6 +18,7 @@ export const Route = createFileRoute("/partners/")({
 });
 
 const PARTNER_REGISTER_URL = "/app/partner/register";
+const PARTNER_LOGIN_URL = "/app/partner/login";
 
 /* ── Small icon set (stroke = currentColor) ── */
 const IconShare = () => (
@@ -179,6 +180,12 @@ function Partners() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <PartnerButton>Partner Program</PartnerButton>
+            <a
+              href={PARTNER_LOGIN_URL}
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-8 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:border-blue-200 hover:text-blue-600"
+            >
+              Partner Sign In
+            </a>
             <a
               href="#how-it-works"
               className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-8 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:border-blue-200 hover:text-blue-600"
@@ -441,8 +448,14 @@ function Partners() {
             minimums, and your first referral can be sent the moment you sign
             up.
           </p>
-          <div className="mt-9">
+          <div className="mt-9 flex flex-col items-center gap-4">
             <PartnerButton>Partner Program</PartnerButton>
+            <a
+              href={PARTNER_LOGIN_URL}
+              className="text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700"
+            >
+              Already a partner? Sign in &rarr;
+            </a>
           </div>
         </div>
       </section>

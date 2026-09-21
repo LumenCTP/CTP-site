@@ -493,7 +493,7 @@ function Home() {
               {
                 icon: <IconChart />,
                 title: "We Track Every Expiration Date",
-                desc: "Every policy, license, and certificate date is logged and tracked to the day — so a lapse never sneaks up on you.",
+                desc: "Every policy, license, and certificate date is logged and tracked to the day — so a lapse is far less likely to catch you off guard, based on the documents on file.",
               },
               {
                 icon: <IconFolder />,
@@ -805,7 +805,7 @@ function Home() {
                 step: "05",
                 title: "We maintain your audit history",
                 desc: "We file every document by vendor and keep a complete, searchable history — so when audit season hits, you're pulling a package in minutes, not days.",
-                detail: "Every document version preserved.",
+                detail: "Document history kept for your records.",
               },
             ].map((item, idx) => (
               <div
@@ -930,7 +930,7 @@ function Home() {
                 <li>Find by policy number or insurance carrier</li>
                 <li>Results in seconds, not hours</li>
                 <li>
-                  Every document version preserved — nothing is ever overwritten
+                  Document history kept for your records
                 </li>
               </ul>
             </div>
@@ -1086,7 +1086,7 @@ function Home() {
               </div>
               <div className="text-center">
                 <h3 className="text-sm font-bold text-slate-900">
-                  Encrypted in transit and at rest
+                  Encrypted in transit
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">
                   Your documents are protected in transit and in storage, and
@@ -1201,16 +1201,13 @@ function Home() {
                 ))}
               </ul>
               <a
-                href="/get-started"
+                href="/get-started?plan=monthly"
                 className="mt-10 inline-flex justify-center rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:border-blue-300 hover:text-blue-600"
               >
                 Get Protected
               </a>
               <p className="mt-4 text-center text-sm text-slate-500">
-                Start your 30-day free trial{" "}
-                <a href="/checkout?plan=monthly" className="font-semibold text-blue-600 underline-offset-2 hover:underline">
-                  Go to checkout →
-                </a>
+                Start your 30-day free trial
               </p>
             </div>
 
@@ -1247,16 +1244,13 @@ function Home() {
                 ))}
               </ul>
               <a
-                href="/get-started"
+                href="/get-started?plan=annual"
                 className="btn-glow mt-10 inline-flex justify-center rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700"
               >
                 Get Protected
               </a>
               <p className="mt-4 text-center text-sm text-slate-500">
-                Start your 30-day free trial{" "}
-                <a href="/checkout?plan=annual" className="font-semibold text-blue-600 underline-offset-2 hover:underline">
-                  Go to checkout →
-                </a>
+                Start your 30-day free trial
               </p>
             </div>
           </div>

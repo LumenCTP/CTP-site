@@ -130,12 +130,6 @@ function PrivacyPolicy() {
             </li>
             <li>
               <strong className="font-semibold text-slate-800">
-                Encrypted at rest
-              </strong>{" "}
-              — your data is stored in secure, encrypted databases.
-            </li>
-            <li>
-              <strong className="font-semibold text-slate-800">
                 Access controls
               </strong>{" "}
               — access to customer data is restricted to authorized personnel
@@ -153,8 +147,7 @@ function PrivacyPolicy() {
               <strong className="font-semibold text-slate-800">
                 Version history
               </strong>{" "}
-              — documents are never overwritten; full version history is
-              preserved for audit purposes.
+              — document versions are retained for audit purposes.
             </li>
           </ul>
           <p>
